@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="border-bottom">
+    <nav class="navbar navbar-dark ">
+      <button class="btn btn-outline-primary" routerLink = "/kontakty" type="button"><i class="fas fa-address-card mr-2"></i>Klienci
+      </button>
+      <button class="btn btn-outline-success" routerLink = "Dodaj-kontakt" type="button"><i class="fas fa-plus mr-2"></i>Dodaj klienta
+      </button>
+      <!-- <button class="btn btn-outline-danger" (click)='cusDelate()'  type="button"><i class="far fa-trash-alt mr-2"></i>Usuń klienta </button> -->
+      <button class="btn btn-outline-info" type="button"><i class="fas fa-file-signature mr-2"></i>Umowy (w celach naukowych)
+      </button>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="wyszukaj klienta" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search mr-2"></i>Szukaj</button>
+      </form>
+    </nav>
+  </div>
+
+  <div class="styl"><router-outlet></router-outlet></div>
+
+
+  </div>
