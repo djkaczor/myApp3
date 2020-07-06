@@ -80,4 +80,8 @@ export class KontaktyService {
     return this.kontakty;
   }
 
+  dodajKontakt(kontakt: Kontakt) {
+    this.kontakty.push(kontakt);
+  }
+
 }

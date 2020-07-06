@@ -1,17 +1,17 @@
 <div class="myContainer">
-  <form action="">
+  <form (ngSubmit) = "add()" action="">
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputImie">Imię:</label>
-        <input id="inputImie" class="form-control" type="text"  name="imie">
+        <label for="imie">Imię:</label>
+        <input id="imie" [(ngModel)]="imie" class="form-control" type="text"  name="imie"/>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputNazwisko">Nazwisko:</label>
-        <input id="inputNazwisko" class="form-control" type="text" name="nazwisko">
+        <label for="nazwisko">Nazwisko:</label>
+        <input id="nazwisko" [(ngModel)]="nazwisko" class="form-control" type="text" name="nazwisko"/>
       </div>
     </div>
 
-
+    <button type="submit" class="btn btn-outline-success">Dodaj</button>
 
   </form>
 </div>

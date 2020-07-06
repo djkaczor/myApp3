@@ -12,6 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { KontaktyNowyKontaktComponent } from './kontakty/kontakty-nowy-kontakt/kontakty-nowy-kontakt.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { KontaktyNowyKontaktComponent } from './kontakty/kontakty-nowy-kontakt/k
     BrowserAnimationsModule,
     MaterialModule,
     LayoutModule,
+    FormsModule
   ],
   providers: [KontaktyService],
   bootstrap: [AppComponent]
