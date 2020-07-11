@@ -22,6 +22,7 @@ export class KontaltyListaComponent implements OnInit {
   ngOnInit() {
     this.kontakty = this.k.pobierzKontakty();
     console.log(this.kontakty);
+    
   }
 
   detale(i) {

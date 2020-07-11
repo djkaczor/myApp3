@@ -9,9 +9,14 @@
   </div>
 
   <div class="col">
-    <p>Kontakt:</p>
+    <p>Numery telefonów:</p>
     <ul>
-      <li *ngFor = "let k of kontakt.tel"> {{k.typ}}: {{k.numer}} </li>
+      <li *ngFor = "let k of kontakt.tel"> {{k.typTel}}: {{k.numer}} </li>
+    </ul>
+
+    <p>Adresy E-mail:</p>
+    <ul>
+      <li *ngFor = "let e of kontakt.email"> {{e.typMail}}: {{e._email}} </li>
     </ul>
   </div>
 

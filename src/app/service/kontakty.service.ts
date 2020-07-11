@@ -28,18 +28,18 @@ export class KontaktyService {
       ],
       tel: [
         {
-          typ: 'Domowy',
+          typTel: 'Domowy',
           numer: 112
         },
         {
-          typ: 'Firmowy',
+          typTel: 'Firmowy',
           numer: 1783466
         }
       ],
       email: [
         {
-          typ: 'Prywatny',
-          email: 'adam...@cos.com'
+          typMail: 'Prywatny',
+          _email: 'adam...@cos.com'
         }
       ]
     },
@@ -57,18 +57,18 @@ export class KontaktyService {
       ],
       tel: [
         {
-          typ: 'Domowy',
+          typTel: 'Domowy',
           numer: 2342
         },
         {
-          typ: 'Firmowy',
+          typTel: 'Firmowy',
           numer: 312423
         }
       ],
       email: [
         {
-          typ: 'Prywatny',
-          email: 'wwwddsd...@cos.com'
+          typMail: 'Prywatny',
+          _email: 'wwwddsd...@cos.com'
         }
       ]
     }
@@ -83,5 +83,12 @@ export class KontaktyService {
   dodajKontakt(kontakt: Kontakt) {
     this.kontakty.push(kontakt);
   }
+
+  ostatniKontakt() {
+    let id: number = this.kontakty[this.kontakty.length -1].id;
+    return id;
+  }
+
+ 
 
 }

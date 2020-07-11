@@ -10,11 +10,11 @@ export interface Kontakt {
 }
 
 export interface Tel {
-  typ?: string;
+  typTel?: string;
   numer?: number;
   }
 
 export interface Email {
-    typ?: string;
-    email?: string;
+    typMail?: string;
+    _email?: string;
   }
