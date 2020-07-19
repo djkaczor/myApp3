@@ -1,0 +1,19 @@
+<div [@in] class="container">
+
+  <div class="row">
+    <div class="col-md-2">
+
+
+      <ul   *ngFor="let kg of kategorie; let i = index" >
+        <li (click) = "test2(i)"> {{ kg.kG }} </li>
+        <ul *ngIf = "poka[i]">
+          <li  *ngFor="let kp of kategorie[i].kP; let k = index" (click)="test(kp)"> {{ kp }} </li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col">
+      <app-magazyn-detale  [doWyslania]="doWyslania"></app-magazyn-detale>
+    </div>
+  </div>
+
+</div>

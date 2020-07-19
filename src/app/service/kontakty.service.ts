@@ -14,34 +14,22 @@ export class KontaktyService {
       nazwisko: 'Pa',
       adres: [
         {
+          typAdres: 'Adres zamieszkania',
           ul: 'Am',
           nrLokalu: '10',
           kodPocztowy: 26197,
           miasto: 'Hunt'
         },
         {
+          typAdres: 'Adres do korespondencji',
           ul: 'Mickiewicza',
           nrLokalu: '6',
           kodPocztowy: 72100,
           miasto: 'Gol'
         }
       ],
-      tel: [
-        {
-          typTel: 'Domowy',
-          numer: 112
-        },
-        {
-          typTel: 'Firmowy',
-          numer: 1783466
-        }
-      ],
-      email: [
-        {
-          typMail: 'Prywatny',
-          _email: 'adam...@cos.com'
-        }
-      ]
+      tel: 1783466541777,
+      email: 'adam.pacholski1985@gmail.com',
     },
     {
       id: 2,
@@ -49,28 +37,15 @@ export class KontaktyService {
       nazwisko: 'P',
       adres: [
         {
+          typAdres: 'Adres zamieszkania',
           ul: 'Mickiewicza',
           nrLokalu: '6',
           kodPocztowy: 72100,
           miasto: 'Gol'
         }
       ],
-      tel: [
-        {
-          typTel: 'Domowy',
-          numer: 2342
-        },
-        {
-          typTel: 'Firmowy',
-          numer: 312423
-        }
-      ],
-      email: [
-        {
-          typMail: 'Prywatny',
-          _email: 'wwwddsd...@cos.com'
-        }
-      ]
+      tel: 7778889990,
+      email: 'jcob.costam@gmail.com',
     }
   ];
 
@@ -85,10 +60,7 @@ export class KontaktyService {
   }
 
   ostatniKontakt() {
-    let id: number = this.kontakty[this.kontakty.length -1].id;
+    const id: number = this.kontakty[this.kontakty.length - 1].id;
     return id;
   }
-
- 
-
 }

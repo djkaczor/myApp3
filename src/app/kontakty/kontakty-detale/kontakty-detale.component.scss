@@ -1,8 +1,55 @@
-p {
-  color: #7fb687;
-  font-size: 16px;
+.myContainer {
+  padding-left: 10px;
+  border-left: 1px dashed white;
 }
 
-ul {
-  font-size: 14px;
+header {
+  font-size: 24px;
+  // font-weight: bold;
+  padding-left: 15px;
+}
+
+.set {
+  font-size: 18px;
+
+  &:hover {
+    font-size: 20px;
+    color: red;
+  }
+}
+
+.border_bottom{
+  position: relative;
+  &::after {
+  content: "";
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 1px;
+  // width:100%;
+  }
+}
+
+.border_dashed {
+  border-right: 1px white dashed;
+  &:last-child {
+    border: none;
+  }
+}
+
+p {
+  
+}
+
+.seting h5 {
+  font-weight: normal;
+  padding-left: 15px;
+  color: green;
+}
+
+.seting div {
+  // text-align: center;
+  padding-left: 15px;
 }

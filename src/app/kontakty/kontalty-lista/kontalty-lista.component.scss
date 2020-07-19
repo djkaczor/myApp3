@@ -1,7 +1,26 @@
 .tHead {
   font-family: 'Roboto Mono', monospace;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
+}
+
+.border_bottom{
+  position: relative;
+  &::after {
+  content: "";
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 90%;
+  }
+}
+.border_dashed {
+  border-right: 1px white dashed;
+  &:last-child {
+    border: none;
+  }
 }
 
 .focus {
@@ -18,3 +37,23 @@
     }
 }
 
+
+.float_left {
+  display: block;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.col2 {
+  width: 0;
+}
+
+
+#detale {
+  transition: width 2s;
+}
+
+ 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KontaktyService } from 'src/app/service/kontakty.service';
 import { RouterLink, Router } from '@angular/router';
-import { Kontakt, Tel, Email } from 'src/app/interface/kontakt';
+
 import { Adres } from 'src/app/interface/adres';
 import { FormControl } from '@angular/forms';
 
@@ -14,95 +14,87 @@ import { FormControl } from '@angular/forms';
 export class KontaktyNowyKontaktComponent implements OnInit {
 
 
-  _numer = new FormControl('');
-  e_mail = new FormControl('');
-  _ulica = new FormControl('');
-  _miasto = new FormControl('');
-  _nrLokalu = new FormControl('');
-  _kodPocztowy = new FormControl('');
-  _typTel = new FormControl('');
-  _typMail = new FormControl('');
+  isChecked = false;
+  typAdres = 'Adres zamieszkania';
+  typAdresDoKorespondencji = 'Adres do korespondencji';
+  _id: number;
+  id: number;
 
-  
-  _id: number
-  id: number
-  imie: string
-  nazwisko: string
-  ul: string
-  nrLokalu: string
-  kodPocztowy: number
-  miasto: string
-  adres: Adres[] = []
-  typTel: string 
-  numer: number
-  tel: Tel[] = []
-  typMail: string 
-  _email: string 
-  email: Email[] = []
+  // Dane klienta
+  imie: string;
+  nazwisko: string;
+
+  // Adres
+  ul: string;
+  nrLokalu: string;
+  kodPocztowy: number;
+  miasto: string;
+  adres1: Adres;
+
+  ul2: string;
+  nrLokalu2: string;
+  kodPocztowy2: number;
+  miasto2: string;
+  adres2: Adres;
+  adres: Adres[] = [];
+
+  // Telefon
+  tel: number;
+  // E-mail
+  email: string;
 
   constructor(
     private k: KontaktyService,
     private router: Router
-   ) { }
+  ) { }
 
   ngOnInit() {
     this._id = this.k.ostatniKontakt();
-    // let last: any = this._id[this._id.length - 1];
-    console.log(this._id);
-
   }
 
   add() {
-    
-    
-
-      this.dodajKolejnyAdres();
-      this.dodajKolejnyTelefon();
-      this.dodajKolejnyEmail();
-
-      this.k.dodajKontakt({
-        id: this._id + 1,
-        imie: this.imie,
-        nazwisko: this.nazwisko,
-        adres: this.adres,
-        tel: this.tel,
-        email: this.email
-        
-      });
-      console.log("index = " + this._id);
-      this.router.navigate(['/kontakty']);
-    
-
-     
-    
-  }
-
-  dodajKolejnyAdres() {
-
-    this.adres.push({ul: this.ul, nrLokalu: this.nrLokalu, kodPocztowy: this.kodPocztowy, miasto: this.miasto});
-    this._ulica.setValue('');
-    this._miasto.setValue('');
-    this._nrLokalu.setValue('');
-    this._kodPocztowy.setValue('');
-
-    
-
+    this.dodajAdres();
+    this.k.dodajKontakt({
+      id: this._id + 1,
+      imie: this.imie,
+      nazwisko: this.nazwisko,
+      adres: this.adres,
+      tel: this.tel,
+      email: this.email
+    });
+    this.router.navigate(['/kontakty']);
 
   }
 
-  dodajKolejnyTelefon() {
- 
-    this.tel.push({typTel: this.typTel, numer: this.numer});
-    this._numer.setValue('');
-    this._typTel.setValue('');
-    
+  dodajAdres() {
+    this.adres1 = { typAdres: this.typAdres, ul: this.ul, nrLokalu: this.nrLokalu, kodPocztowy: this.kodPocztowy, miasto: this.miasto };
+    if (this.isChecked === true) {
+
+      this.adres2 = {
+        typAdres: this.typAdresDoKorespondencji,
+        ul: this.ul2,
+        nrLokalu: this.nrLokalu2,
+        kodPocztowy: this.kodPocztowy2,
+        miasto: this.miasto2
+      };
+    }
+
+    else {
+      this.adres2 = {
+        typAdres: this.typAdresDoKorespondencji,
+        ul: this.ul,
+        nrLokalu: this.nrLokalu,
+        kodPocztowy: this.kodPocztowy,
+        miasto: this.miasto
+      };
+    }
+
+    this.adres.push(this.adres1, this.adres2);
+
   }
 
-  dodajKolejnyEmail() {
+  Checked() {
+    this.isChecked = !this.isChecked;
 
-    this.email.push({typMail: this.typMail, _email: this._email});
-    this.e_mail.setValue('');
-    this._typMail.setValue('');
   }
-
 }

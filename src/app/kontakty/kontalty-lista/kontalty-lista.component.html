@@ -1,6 +1,6 @@
-<div>
-
-<div class="row border-bottom pb-2 tHead">
+<!-- 
+<div> 
+  <div class="row border-bottom pb-2 tHead">
   <div class="col-md-1">Lp.</div>
   <div class="col">Imie i nazwisko:</div>
   <div class="col">Miasto:</div>
@@ -13,18 +13,44 @@
     <div class="col-md-1"> {{i + 1}} </div>
     <div class="col">{{k.imie}} {{k.nazwisko}} </div>
     <div class="col">{{k.adres[0].miasto}}</div>
-    <div class="col">{{k.tel[0].numer}}</div>
+    <div class="col">{{k.tel}}</div>
   </div>
   <div class="row collapse pt-3 border-top" [attr.id] = "'prefix' + k.id ">
     <div class="col">
-      <app-kontakty-detale [kontakt] = "kontakty[i]"></app-kontakty-detale>
+      
     </div>
   </div>
 </div>
+</div> -->
 
+<!-- <div class="" [ngClass] = "test ? 'test2' : 'test1'">test</div> -->
+
+<div class="container">
+  <div class="row">
+    <div [@inAnimation] [ngClass]="zmiany ? 'col-md-5' : 'col-md-12'" class="">
+      <div [ngClass] = "!zmiany ? 'border-bottom' : 'border_bottom'" class="row  tHead">
+        <div [ngClass] = "!zmiany ? 'col-md-3' : 'col'" class="border_dashed">Imie i nazwisko:</div>
+        <div [ngClass] = "!zmiany ? 'col-md-2' : 'col'" class="border_dashed">Miasto:</div>
+        <div *ngIf = "!zmiany" class="col-md-2 border_dashed ">nr telefonu:</div>
+        <div *ngIf = "!zmiany" class="col border_dashed">E-mail</div>
+      </div>
+
+      <div class="row pb-2 pt-3 focus" *ngFor = "let k of kontakty; let i = index" (click) = detale(i)>
+        <div [ngClass] = "!zmiany ? 'col-md-3' : 'col'" class="border_dashed">{{k.imie}} {{k.nazwisko}} </div>
+        <div [ngClass] = "!zmiany ? 'col-md-2' : 'col'" class="border_dashed">{{k.adres[0].miasto}}</div>
+        <div *ngIf = "!zmiany" class="col-md-2 border_dashed">{{k.tel}}</div>
+        <div *ngIf = "!zmiany" class="col border_dashed">{{k.email}}</div>
+      </div>
+    </div>
+    <div [@inAnimation] *ngIf="zmiany" id = "detale" [ngClass]="zmiany ? 'col-md-7' : 'col2'">
+      <app-kontakty-detale [zmiany] = "zmiany" [kontakt] = "kontakt" (zamknijDetale) = "aktualizacja_test($event)" ></app-kontakty-detale>
+    </div>
+  </div>
 
 
 </div>
+
+
 
 <!-- <table>
   <thead>
