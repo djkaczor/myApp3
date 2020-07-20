@@ -59,8 +59,8 @@ export class MagazynService {
       opis: 'Wkręty do płyt wiórowych',
       cenaZakupuNetto: 49,
       cenaZakupuBrutto: 60.27,
-      ilosc: 1000,
-      jednostka: 'sztuk'
+      ilosc: 4,
+      jednostka: 'opakowania'
     },
     {
       nrProduktu: 16382,
@@ -72,9 +72,49 @@ export class MagazynService {
       opis: 'Wkręty do płyt wiórowych',
       cenaZakupuNetto: 54,
       cenaZakupuBrutto: 66.42,
-      ilosc: 1000,
+      ilosc: 2,
+      jednostka: 'opakowania'
+    },
+    {
+      nrProduktu: 82645827,
+      kategoria: {
+        kG: 'Płyty',
+        kP: 'OSB'
+      },
+      nazwaProduktu: 'Płyta OSB-3 22 mm',
+      opis: 'Płyta budowlana OSB-3 pióro wpust do zastosować budowlanych, posiadająca dobre parametry nośne. Mały format do łatwego samodzielnego montażu',
+      cenaZakupuNetto: 34.48,
+      cenaZakupuBrutto: 44.79,
+      ilosc: 10,
       jednostka: 'sztuk'
+    },
+    {
+      nrProduktu: 82645826,
+      kategoria: {
+        kG: 'Płyty',
+        kP: 'OSB'
+      },
+      nazwaProduktu: 'Płyta OSB-3 18 mm',
+      opis: 'Płyta budowlana OSB-3 pióro wpust do zastosować budowlanych, posiadająca dobre parametry nośne. Mały format do łatwego samodzielnego montażu',
+      cenaZakupuNetto: 26.60,
+      cenaZakupuBrutto: 34.55,
+      ilosc: 10,
+      jednostka: 'sztuk'
+    },
+    {
+      nrProduktu: 45529995,
+      kategoria: {
+        kG: 'Wkręty',
+        kP: 'g-k'
+      },
+      nazwaProduktu: 'Wkręt 3.5 x 25 mm',
+      opis: 'Przeznaczenie: Płyta gipsowo-kartonowa, 200szt/opak.',
+      cenaZakupuNetto: 4.54,
+      cenaZakupuBrutto: 5.90,
+      ilosc: 6,
+      jednostka: 'opakowań'
     }
+
   ];
 
   constructor() { }

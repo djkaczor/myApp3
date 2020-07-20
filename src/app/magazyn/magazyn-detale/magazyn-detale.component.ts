@@ -17,12 +17,6 @@ export class MagazynDetaleComponent implements OnInit {
   constructor(private m: MagazynService) { }
 
   ngOnInit(): void {
-    this.i = 0;
-    while (this.i <= this.doWyslania.length) {
-      console.log(this.doWyslania);
-      this.i++;
-    }
-
   }
 
 

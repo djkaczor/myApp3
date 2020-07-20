@@ -35,14 +35,19 @@ import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 })
 export class MagazynListaComponent implements OnInit {
 
-  zmienna: string;
   magazyn: Magazyn[] = [];
   doWyslania: Magazyn[] = [];
+  doWyslaniaTemp: Magazyn[] = [];
   kategorie: Kategorie[] = [];
-  poka: boolean[] = [];
+  ilosc: number[] = [];
+  isShow: boolean[] = [];
+  podKat: boolean[] = [];
   i: number;
   temp: number;
   x: number;
+  xKat: number;
+  zmienna: string;
+
 
   constructor(private k: MagazynService) { }
 
@@ -51,28 +56,78 @@ export class MagazynListaComponent implements OnInit {
     this.magazyn = this.k.pobierzMagazyn();
     this.i = 0;
     while (this.i <= this.kategorie.length - 1) {
-      this.poka.push(false);
+      this.isShow.push(false);
       this.i++;
     }
-    console.log(this.magazyn);
   }
 
-  test(i) {
-    this.zmienna = i;
-    this.doWyslania = this.magazyn.filter(e => e.kategoria.kP.includes(this.zmienna));
-  }
+  pobieranieIlosci(i) {
 
-  test2(i) {
     this.temp = 0;
-    this.x = this.kategorie.length - 1;
-    console.log(this.x);
+    this.x = this.kategorie[i].kP.length - 1;
+    this.ilosc = [];
     while (this.temp <= this.x) {
-      if(this.poka[this.temp] === true) {
-        this.poka[this.temp] = !this.poka[this.temp];
+      this.zmienna = this.kategorie[i].kP[this.temp];
+      this.doWyslaniaTemp = this.magazyn.filter(e => e.kategoria.kP.includes(this.zmienna));
+      this.ilosc.push(this.doWyslaniaTemp.length);
+      this.temp++;
+    }
+  }
+
+  detale(kp: string) {
+    this.doWyslania = this.magazyn.filter(e => e.kategoria.kP.includes(kp));
+
+  }
+
+  zmianaAktywnosci(i: number, k: number) {
+    this.temp = 0;
+    this.xKat = this.kategorie[i].kP.length - 1;
+    while (this.temp < k) {
+      if (this.podKat[this.temp] === true) {
+        this.podKat[this.temp] = !this.podKat[this.temp];
       }
       this.temp++;
     }
-    this.poka[i] = !this.poka[i];
+    if (this.temp === k) {
+      this.podKat[k] = !this.podKat[k];
+      this.temp++;
+    }
+    while (this.temp <= this.xKat) {
+      if (this.podKat[this.temp] === true) {
+        this.podKat[this.temp] = !this.podKat[this.temp];
+      }
+      this.temp++;
+    }
+  }
+
+  show(i: number) {
+    this.temp = 0;
+    this.x = this.kategorie.length - 1;
+    while (this.temp < i) {
+      if (this.isShow[this.temp] === true) {
+        this.isShow[this.temp] = !this.isShow[this.temp];
+      }
+      this.temp++;
+    }
+    if (this.temp === i) {
+      this.isShow[i] = !this.isShow[i];
+      this.temp++;
+    }
+    while (this.temp <= this.x) {
+      if (this.isShow[this.temp] === true) {
+        this.isShow[this.temp] = !this.isShow[this.temp];
+      }
+      this.temp++;
+    }
+    this.temp = 0;
+    this.x = this.kategorie[i].kP.length - 1;
+    while (this.temp <= this.x) {
+      if (this.podKat[this.temp] === true) {
+        this.podKat[this.temp] = !this.podKat[this.temp]
+      }
+      this.temp++;
+    }
+
   }
 
 }
