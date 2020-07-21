@@ -11,12 +11,14 @@ import { Magazyn } from 'src/app/interface/magazyn';
 export class MagazynDetaleComponent implements OnInit {
 
   @Input() doWyslania: Magazyn[];
+  @Input() brakProduktow: boolean;
 
   i: number;
 
   constructor(private m: MagazynService) { }
 
   ngOnInit(): void {
+    this.doWyslania = this.m.pobierzMagazyn();
   }
 
 

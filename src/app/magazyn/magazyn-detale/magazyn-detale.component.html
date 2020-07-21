@@ -1,1 +1,18 @@
-<div *ngFor = " let m of doWyslania"> {{m.nrProduktu}}</div>
+<div *ngIf = "brakProduktow">Brak produktów w tej kategorii</div>
+
+<div *ngFor = "let m of doWyslania; let i = index">
+    <div class="row">
+        <div class="col-2">
+            {{m.nrProduktu}}
+        </div>
+        <div class="col">
+            {{m.nazwaProduktu}}
+        </div>
+        <div class="col-1 ml-auto text-right">
+            {{ m.ilosc }}
+        </div>
+        <div class="col-1 ">
+            [{{ m.jednostka }}]
+        </div>
+    </div>
+</div>

@@ -47,11 +47,14 @@ export class MagazynListaComponent implements OnInit {
   x: number;
   xKat: number;
   zmienna: string;
+  all: string;
+  brakProduktow: boolean;
 
 
   constructor(private k: MagazynService) { }
 
   ngOnInit(): void {
+    this.all = 'Wszystkie';
     this.kategorie = this.k.pobierzKategorie();
     this.magazyn = this.k.pobierzMagazyn();
     this.i = 0;
@@ -59,7 +62,17 @@ export class MagazynListaComponent implements OnInit {
       this.isShow.push(false);
       this.i++;
     }
+
   }
+
+  sprawdzanie() {
+    if (this.doWyslania.length === 0) {
+      this.brakProduktow = true;
+    } else {
+      this.brakProduktow = false;
+    }
+  }
+
 
   pobieranieIlosci(i) {
 
@@ -74,9 +87,14 @@ export class MagazynListaComponent implements OnInit {
     }
   }
 
-  detale(kp: string) {
+  detaleKP(kp: string) {
     this.doWyslania = this.magazyn.filter(e => e.kategoria.kP.includes(kp));
+    this.sprawdzanie();
+  }
 
+  detaleKG(kg: string) {
+    this.doWyslania = this.magazyn.filter(e => e.kategoria.kG.includes(kg));
+    this.sprawdzanie();
   }
 
   zmianaAktywnosci(i: number, k: number) {
@@ -110,7 +128,7 @@ export class MagazynListaComponent implements OnInit {
       this.temp++;
     }
     if (this.temp === i) {
-      this.isShow[i] = !this.isShow[i];
+      this.isShow[i] = true;
       this.temp++;
     }
     while (this.temp <= this.x) {
@@ -123,11 +141,23 @@ export class MagazynListaComponent implements OnInit {
     this.x = this.kategorie[i].kP.length - 1;
     while (this.temp <= this.x) {
       if (this.podKat[this.temp] === true) {
-        this.podKat[this.temp] = !this.podKat[this.temp]
+        this.podKat[this.temp] = !this.podKat[this.temp];
       }
       this.temp++;
     }
 
   }
 
+  wszystkie() {
+    this.doWyslania = this.magazyn;
+    this.temp = 0;
+    this.x = this.kategorie.length - 1;
+    while (this.temp <= this.x) {
+      if (this.isShow[this.temp] === true) {
+        this.isShow[this.temp] = !this.isShow[this.temp];
+      }
+      this.temp++;
+    }
+    this.sprawdzanie();
+  }
 }

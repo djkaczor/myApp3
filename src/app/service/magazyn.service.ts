@@ -34,7 +34,7 @@ export class MagazynService {
       cenaZakupuNetto: 202.66,
       cenaZakupuBrutto: 225.66,
       ilosc: 5,
-      jednostka: 'sztuk'
+      jednostka: 'szt'
     },
     {
       nrProduktu: 3002,
@@ -47,7 +47,7 @@ export class MagazynService {
       cenaZakupuNetto: 202.66,
       cenaZakupuBrutto: 225.66,
       ilosc: 5,
-      jednostka: 'sztuk'
+      jednostka: 'szt'
     },
     {
       nrProduktu: 16381,
@@ -60,7 +60,7 @@ export class MagazynService {
       cenaZakupuNetto: 49,
       cenaZakupuBrutto: 60.27,
       ilosc: 4,
-      jednostka: 'opakowania'
+      jednostka: 'opak'
     },
     {
       nrProduktu: 16382,
@@ -73,7 +73,7 @@ export class MagazynService {
       cenaZakupuNetto: 54,
       cenaZakupuBrutto: 66.42,
       ilosc: 2,
-      jednostka: 'opakowania'
+      jednostka: 'opak'
     },
     {
       nrProduktu: 82645827,
@@ -86,7 +86,7 @@ export class MagazynService {
       cenaZakupuNetto: 34.48,
       cenaZakupuBrutto: 44.79,
       ilosc: 10,
-      jednostka: 'sztuk'
+      jednostka: 'szt'
     },
     {
       nrProduktu: 82645826,
@@ -99,7 +99,7 @@ export class MagazynService {
       cenaZakupuNetto: 26.60,
       cenaZakupuBrutto: 34.55,
       ilosc: 10,
-      jednostka: 'sztuk'
+      jednostka: 'szt'
     },
     {
       nrProduktu: 45529995,
@@ -112,7 +112,7 @@ export class MagazynService {
       cenaZakupuNetto: 4.54,
       cenaZakupuBrutto: 5.90,
       ilosc: 6,
-      jednostka: 'opakowań'
+      jednostka: 'opak'
     }
 
   ];

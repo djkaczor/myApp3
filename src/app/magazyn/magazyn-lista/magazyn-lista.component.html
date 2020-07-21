@@ -3,14 +3,18 @@
   <div class="row">
     <div class="col-md-3 border_right ">
 
-      <div class="pr-3 " *ngFor="let kg of kategorie; let i = index">
-        <div [ngClass]="isShow[i] ? 'focusOn' : '!focusOn'" class="mb-2 header hover" (click)="show(i) ;  pobieranieIlosci(i)">
+      <div class="pr-3 ">
+        <div class="mb-2 header hover" (click)="wszystkie()">
+          {{all | uppercase}} </div>
+        <div *ngFor="let kg of kategorie; let i = index">
+        <div [ngClass]="isShow[i] ? 'focusOn' : '!focusOn'" class="mb-2 header hover" (click)="show(i) ;pobieranieIlosci(i); detaleKG(kg.kG[i])">
           {{ kg.kG | uppercase}} </div>
         <div class="border_bottom2" *ngIf="isShow[i]">
-          <div class="divBody mb-1 d-flex" [ngClass] = "podKat[k] ? 'divBodyOn' : '!divBodyOn'" *ngFor="let kp of kategorie[i].kP; let k = index" (click)="detale(kp); zmianaAktywnosci(i, k)">
+          <div class="divBody mb-1 d-flex" [ngClass] = "podKat[k] ? 'divBodyOn' : '!divBodyOn'" *ngFor="let kp of kategorie[i].kP; let k = index" (click)="detaleKP(kp); zmianaAktywnosci(i, k)">
            <div>{{ kp }}</div>  <span class="ml-auto" id = "ilosc">[ {{ilosc[k]}} ] </span>
           </div>
         </div>
+      </div>
       </div>
 
       <!-- <ul   *ngFor="let kg of kategorie; let i = index" >
@@ -21,7 +25,7 @@
       </ul> -->
     </div>
     <div class="col">
-      <app-magazyn-detale [doWyslania]="doWyslania"></app-magazyn-detale>
+      <app-magazyn-detale [brakProduktow] = "brakProduktow" [doWyslania] = "doWyslania"></app-magazyn-detale>
     </div>
   </div>
 

@@ -10,12 +10,12 @@ import { MagazynListaComponent } from './magazyn/magazyn-lista/magazyn-lista.com
 const routes: Routes = [
   { path: 'kontakty', component: KontaktyStronaComponent, children: [
     { path: '', component: KontaltyListaComponent },
-    { path: 'Dodaj-kontakt', component:KontaktyNowyKontaktComponent }
-  ] },
+    { path: 'Dodaj-kontakt', component: KontaktyNowyKontaktComponent }
+  ]},
 
-  { path: 'magazyn', component: MagazynStronaComponent, children:[
+  { path: 'magazyn', component: MagazynStronaComponent, children: [
     { path: '', component: MagazynListaComponent }
-  ] }
+  ]}
 
 ];
 
