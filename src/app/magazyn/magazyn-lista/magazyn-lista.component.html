@@ -10,7 +10,7 @@
         <div [ngClass]="isShow[i] ? 'focusOn' : '!focusOn'" class="mb-2 header hover" (click)="show(i) ;pobieranieIlosci(i); detaleKG(kg.kG[i])">
           {{ kg.kG | uppercase}} </div>
         <div class="border_bottom2" *ngIf="isShow[i]">
-          <div class="divBody mb-1 d-flex" [ngClass] = "podKat[k] ? 'divBodyOn' : '!divBodyOn'" *ngFor="let kp of kategorie[i].kP; let k = index" (click)="detaleKP(kp); zmianaAktywnosci(i, k)">
+          <div class="divBody mb-1 d-flex" [ngClass] = "podKat[k] ? 'divBodyOn' : '!divBodyOn'" *ngFor="let kp of kategorie[i].kP; let k = index" (click)="detaleKP(kp); zmianaAktywnosci(k)">
            <div>{{ kp }}</div>  <span class="ml-auto" id = "ilosc">[ {{ilosc[k]}} ] </span>
           </div>
         </div>

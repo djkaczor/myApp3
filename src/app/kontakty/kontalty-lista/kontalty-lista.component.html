@@ -1,29 +1,4 @@
-<!-- 
-<div> 
-  <div class="row border-bottom pb-2 tHead">
-  <div class="col-md-1">Lp.</div>
-  <div class="col">Imie i nazwisko:</div>
-  <div class="col">Miasto:</div>
-  <div class="col">nr telefonu:</div>
 
-</div>
-
-<div *ngFor = "let k of kontakty; let i = index">
-  <div data-toggle = 'collapse' [attr.data-target]="'#' + 'prefix'+ k.id"  class="row pb-2 pt-3 focus" >
-    <div class="col-md-1"> {{i + 1}} </div>
-    <div class="col">{{k.imie}} {{k.nazwisko}} </div>
-    <div class="col">{{k.adres[0].miasto}}</div>
-    <div class="col">{{k.tel}}</div>
-  </div>
-  <div class="row collapse pt-3 border-top" [attr.id] = "'prefix' + k.id ">
-    <div class="col">
-      
-    </div>
-  </div>
-</div>
-</div> -->
-
-<!-- <div class="" [ngClass] = "test ? 'test2' : 'test1'">test</div> -->
 
 <div class="container">
   <div class="row">
@@ -52,50 +27,3 @@
 
 
 
-<!-- <table>
-  <thead>
-    <tr class="trHead">
-      <th id = "jeden">Lp.</th>
-      <th>Imię / Nazwisko:</th>
-      <th>Miasto:</th>
-      <th>Nr telefonu:</th>
-    </tr>
-  </thead>
-  <tbody  *ngFor = "let k of kontakty; let i = index">
-    <tr data-toggle = 'collapse' [attr.data-target]="'#' + 'prefix'+ k.id" class="trBody" tabindex="0"  >
-      <td> {{i + 1}} </td>
-      <td> {{k.imie}} {{k.nazwisko}} </td>
-      <td> {{k.adres[0].miasto}} </td>
-      <td> {{k.tel[0].numer}} </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="collapse" [attr.id] = "'prefix' + k.id "><app-kontakty-detale [kontakt] = "kontakty[i]"></app-kontakty-detale></div>
-      </td>
-    </tr>
-  </tbody>
-</table> -->
-
-
-<!-- <div class="container">
-  <div *ngFor = "let k of kontakty; let i = index">
-
-<div  data-toggle = 'collapse' [attr.data-target]="'#' + 'prefix'+ k.id"> {{k.imie}}  </div>
-  <div class="collapse" [attr.id] = "'prefix' + k.id "><app-kontakty-detale [kontakt] = "kontakty[i]"></app-kontakty-detale></div>
-</div>
-
-
-
-<div class="row">
-  <div>
-    <div *ngFor = "let k of kontakty; let i = index" class="row" (click) = detale(i)>
-       <div class="col"> {{k.imie}} </div>
-    </div>
-  </div>
-
-
-  <div class="col"><div><app-kontakty-detale *ngIf = "kontakt" [kontakt] = 'kontakt'></app-kontakty-detale></div></div>
-
-</div>
-
-</div> -->

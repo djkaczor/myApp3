@@ -50,6 +50,10 @@ export class MagazynListaComponent implements OnInit {
   all: string;
   brakProduktow: boolean;
 
+  tempIsShow: number;
+  tempKat: number;
+
+
 
   constructor(private k: MagazynService) { }
 
@@ -63,6 +67,8 @@ export class MagazynListaComponent implements OnInit {
       this.i++;
     }
 
+    this.tempIsShow = -1;
+    this.tempKat = -1;
   }
 
   sprawdzanie() {
@@ -97,52 +103,79 @@ export class MagazynListaComponent implements OnInit {
     this.sprawdzanie();
   }
 
-  zmianaAktywnosci(i: number, k: number) {
-    this.temp = 0;
-    this.xKat = this.kategorie[i].kP.length - 1;
-    while (this.temp < k) {
-      if (this.podKat[this.temp] === true) {
-        this.podKat[this.temp] = !this.podKat[this.temp];
-      }
-      this.temp++;
+  zmianaAktywnosci(k: number) {
+
+    if (k !== this.tempKat) {
+      this.podKat[k] = true;
+      try {
+        this.podKat[this.tempKat] = false;
+      } catch {}
     }
-    if (this.temp === k) {
+
+    if (k === this.tempKat) {
       this.podKat[k] = !this.podKat[k];
-      this.temp++;
     }
-    while (this.temp <= this.xKat) {
-      if (this.podKat[this.temp] === true) {
-        this.podKat[this.temp] = !this.podKat[this.temp];
-      }
-      this.temp++;
-    }
+
+    this.tempKat = k;
+
+    // this.temp = 0;
+    // this.xKat = this.kategorie[i].kP.length - 1;
+    // while (this.temp < k) {
+    //   if (this.podKat[this.temp] === true) {
+    //     this.podKat[this.temp] = !this.podKat[this.temp];
+    //   }
+    //   this.temp++;
+    // }
+    // if (this.temp === k) {
+    //   this.podKat[k] = !this.podKat[k];
+    //   this.temp++;
+    // }
+    // while (this.temp <= this.xKat) {
+    //   if (this.podKat[this.temp] === true) {
+    //     this.podKat[this.temp] = !this.podKat[this.temp];
+    //   }
+    //   this.temp++;
+    // }
   }
 
   show(i: number) {
-    this.temp = 0;
-    this.x = this.kategorie.length - 1;
-    while (this.temp < i) {
-      if (this.isShow[this.temp] === true) {
-        this.isShow[this.temp] = !this.isShow[this.temp];
-      }
-      this.temp++;
-    }
-    if (this.temp === i) {
+
+    if (i !== this.tempIsShow) {
       this.isShow[i] = true;
-      this.temp++;
+      try {
+        this.isShow[this.tempIsShow] = false;
+      } catch { }
     }
-    while (this.temp <= this.x) {
-      if (this.isShow[this.temp] === true) {
-        this.isShow[this.temp] = !this.isShow[this.temp];
-      }
-      this.temp++;
+
+    if (i === this.tempIsShow) {
+      this.isShow[i] = !this.isShow[i];
     }
+
+    this.tempIsShow = i;
+    // this.temp = 0;
+    // this.x = this.kategorie.length - 1;
+    // while (this.temp < i) {
+    //   if (this.isShow[this.temp] === true) {
+    //     this.isShow[this.temp] = !this.isShow[this.temp];
+    //   }
+    //   this.temp++;
+    // }
+    // if (this.temp === i) {
+    //   this.isShow[i] = true;
+    //   this.temp++;
+    // }
+    // while (this.temp <= this.x) {
+    //   if (this.isShow[this.temp] === true) {
+    //     this.isShow[this.temp] = !this.isShow[this.temp];
+    //   }
+    //   this.temp++;
+    // }
     this.temp = 0;
     this.x = this.kategorie[i].kP.length - 1;
     while (this.temp <= this.x) {
-      if (this.podKat[this.temp] === true) {
-        this.podKat[this.temp] = !this.podKat[this.temp];
-      }
+
+      this.podKat[this.temp] = false;
+
       this.temp++;
     }
 
