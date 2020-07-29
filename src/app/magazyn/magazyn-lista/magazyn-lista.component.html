@@ -1,7 +1,16 @@
 <div [@in] class="container">
 
+  <div class="searchBox">
+          <input type="text" 
+          [(ngModel)] = "szukanyText"
+          on-focusout = "clear()" [formControl] = "szukaj" 
+          value="" name="" id="">
+          <i class="fas fa-search"></i>
+      </div>
   <div class="row">
     <div class="col-md-3 border_right ">
+    
+      
 
       <div class="pr-3 ">
         <div class="mb-2 header hover" (click)="wszystkie()">
@@ -25,7 +34,7 @@
       </ul> -->
     </div>
     <div class="col">
-      <app-magazyn-detale [brakProduktow] = "brakProduktow" [doWyslania] = "doWyslania"></app-magazyn-detale>
+      <app-magazyn-detale [szukanyText] = "szukanyText" [brakProduktow] = "brakProduktow" [doWyslania] = "doWyslania"></app-magazyn-detale>
     </div>
   </div>
 

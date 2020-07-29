@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./magazyn-strona.component.scss']
 })
 export class MagazynStronaComponent implements OnInit {
-
+  tytul: string;
   constructor() { }
 
   ngOnInit(): void {

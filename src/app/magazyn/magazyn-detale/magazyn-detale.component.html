@@ -1,6 +1,6 @@
 <div *ngIf = "brakProduktow">Brak produktów w tej kategorii</div>
 
-<div *ngFor = "let m of doWyslania; let i = index">
+<div *ngFor = "let m of doWyslania | filter : szukanyText : kategorie">
     <div class="row">
         <div class="col-2">
             {{m.nrProduktu}}

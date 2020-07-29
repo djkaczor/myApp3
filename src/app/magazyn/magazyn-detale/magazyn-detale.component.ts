@@ -12,6 +12,9 @@ export class MagazynDetaleComponent implements OnInit {
 
   @Input() doWyslania: Magazyn[];
   @Input() brakProduktow: boolean;
+  @Input() szukanyText: string;
+
+  kategorie = ['nazwaProduktu', 'nrProduktu'];
 
   i: number;
 
@@ -20,6 +23,7 @@ export class MagazynDetaleComponent implements OnInit {
   ngOnInit(): void {
     this.doWyslania = this.m.pobierzMagazyn();
   }
+
 
 
 

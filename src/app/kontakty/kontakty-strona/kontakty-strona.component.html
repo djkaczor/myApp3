@@ -2,18 +2,21 @@
 
   <div class="border-bottom">
     <nav class="navbar navbar-expand-lg navbar-dark ">
-      <button class="btn btn-outline-primary" routerLink = "/kontakty" type="button"><i class="fas fa-address-card mr-2"></i>Klienci
-      </button>
-      <button class="btn btn-outline-success ml-4" routerLink = "Dodaj-kontakt" type="button"><i class="fas fa-plus mr-2"></i>Dodaj klienta
+      <a class="navbar-brand" href="/kontakty">Kontakty {{tytul}}</a>
+
+      
+      <button class="btn btn-outline-success ml-auto"
+       routerLink = "Dodaj-kontakt" 
+       type="button"
+       (click) = "tytul = ' - nowy klient'">
+       <i class="fas fa-plus mr-2"></i>
+       Dodaj klienta
       </button>
     
-      <button class="btn btn-outline-info mr-auto ml-4" type="button"><i class="fas fa-file-signature mr-2"></i>Umowy (w celach naukowych)
+      <button class="btn btn-outline-info ml-4" type="button"><i class="fas fa-file-signature mr-2"></i>Umowy (w celach naukowych)
       </button>
             
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search mr-2"></i>Szukaj</button>
-        </form>
+       
         
     </nav>
 </div>

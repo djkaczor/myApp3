@@ -16,7 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MagazynStronaComponent } from './magazyn/magazyn-strona/magazyn-strona.component';
 import { MagazynListaComponent } from './magazyn/magazyn-lista/magazyn-lista.component';
 import { MagazynDetaleComponent } from './magazyn/magazyn-detale/magazyn-detale.component';
+import { MagazynUstawieniaComponent } from './magazyn/magazyn-ustawienia/magazyn-ustawienia.component';
+import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/magazyn-nowy-produkt.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
+//import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -30,6 +34,9 @@ import { MagazynDetaleComponent } from './magazyn/magazyn-detale/magazyn-detale.
     MagazynStronaComponent,
     MagazynListaComponent,
     MagazynDetaleComponent,
+    MagazynUstawieniaComponent,
+    MagazynNowyProduktComponent,
+    FilterPipe,
 
   ],
   imports: [
@@ -39,7 +46,9 @@ import { MagazynDetaleComponent } from './magazyn/magazyn-detale/magazyn-detale.
     MaterialModule,
     LayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  //  Ng2SearchPipeModule
+
   ],
   providers: [
     KontaktyService,

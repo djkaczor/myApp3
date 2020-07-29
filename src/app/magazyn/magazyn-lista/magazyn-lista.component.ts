@@ -4,6 +4,7 @@ import { Magazyn } from 'src/app/interface/magazyn';
 import { MagazynService } from 'src/app/service/magazyn.service';
 import { Kategorie } from 'src/app/interface/kategorie';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-magazyn-lista',
@@ -35,6 +36,9 @@ import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 })
 export class MagazynListaComponent implements OnInit {
 
+  szukaj = new FormControl('');
+
+  szukanyText: string;
   magazyn: Magazyn[] = [];
   doWyslania: Magazyn[] = [];
   doWyslaniaTemp: Magazyn[] = [];
@@ -99,8 +103,15 @@ export class MagazynListaComponent implements OnInit {
   }
 
   detaleKG(kg: string) {
+
     this.doWyslania = this.magazyn.filter(e => e.kategoria.kG.includes(kg));
     this.sprawdzanie();
+  }
+
+  szukaneDetale(value: string) {
+
+    this.doWyslania = this.magazyn.filter(e => e.nazwaProduktu.toLowerCase === value.toLowerCase);
+
   }
 
   zmianaAktywnosci(k: number) {
@@ -117,25 +128,6 @@ export class MagazynListaComponent implements OnInit {
     }
 
     this.tempKat = k;
-
-    // this.temp = 0;
-    // this.xKat = this.kategorie[i].kP.length - 1;
-    // while (this.temp < k) {
-    //   if (this.podKat[this.temp] === true) {
-    //     this.podKat[this.temp] = !this.podKat[this.temp];
-    //   }
-    //   this.temp++;
-    // }
-    // if (this.temp === k) {
-    //   this.podKat[k] = !this.podKat[k];
-    //   this.temp++;
-    // }
-    // while (this.temp <= this.xKat) {
-    //   if (this.podKat[this.temp] === true) {
-    //     this.podKat[this.temp] = !this.podKat[this.temp];
-    //   }
-    //   this.temp++;
-    // }
   }
 
   show(i: number) {
@@ -152,24 +144,6 @@ export class MagazynListaComponent implements OnInit {
     }
 
     this.tempIsShow = i;
-    // this.temp = 0;
-    // this.x = this.kategorie.length - 1;
-    // while (this.temp < i) {
-    //   if (this.isShow[this.temp] === true) {
-    //     this.isShow[this.temp] = !this.isShow[this.temp];
-    //   }
-    //   this.temp++;
-    // }
-    // if (this.temp === i) {
-    //   this.isShow[i] = true;
-    //   this.temp++;
-    // }
-    // while (this.temp <= this.x) {
-    //   if (this.isShow[this.temp] === true) {
-    //     this.isShow[this.temp] = !this.isShow[this.temp];
-    //   }
-    //   this.temp++;
-    // }
     this.temp = 0;
     this.x = this.kategorie[i].kP.length - 1;
     while (this.temp <= this.x) {
@@ -192,5 +166,9 @@ export class MagazynListaComponent implements OnInit {
       this.temp++;
     }
     this.sprawdzanie();
+  }
+
+  clear() {
+    this.szukaj.setValue('');
   }
 }
