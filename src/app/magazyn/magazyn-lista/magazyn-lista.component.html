@@ -3,7 +3,7 @@
   <div class="searchBox">
           <input type="text" 
           [(ngModel)] = "szukanyText"
-          on-focusout = "clear()" [formControl] = "szukaj" 
+          (click) = "clear()" [formControl] = "szukaj" 
           value="" name="" id="">
           <i class="fas fa-search"></i>
       </div>
