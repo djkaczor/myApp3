@@ -1,10 +1,33 @@
-<form action="">
-    <div class="form-row">
-        <div class="form-goup">
-            <label for=""></label>
-            <input type="text" name="" id="">
-        </div>
-        <div class="form-goup">2</div>
-    </div>
+<div class="myContainer">
+  <form action="">
 
-</form>
+    <div class="form-row">
+        <div class="form-goup col-md-6 pr-3">
+          <label for="kG">Kat. główna</label>
+          <select class="form-control" id="kG">
+            <option *ngFor = 'let kG of kategorie; let i = index'> {{kG.kG}} </option>
+            
+          </select>
+        </div>
+        <div class="form-goup col-md-6 pr-3">
+          <label for="kP">Kat. poboczna</label>
+          <select class="form-control" id="kP">
+            <option *ngFor = 'let pK of podKat'> {{pK.pK}} </option>
+            
+          </select>
+        </div>
+      </div>
+
+
+    <div class="form-row">
+      <div class="form-goup col-md-4 pr-3">
+        <label for="nrProduktu">Nr produktu / usługi</label>
+        <input id="nrProduktu" class="form-control" type="nrProduktu" name="nrProduktu">
+      </div>
+      <div class="form-goup col-md-8 pr-3">
+        <label for="nrProduktu">Nazwa</label>
+        <input id="nrProduktu" class="form-control" type="nrProduktu" name="nrProduktu">
+      </div>
+    </div>
+  </form>
+</div>
