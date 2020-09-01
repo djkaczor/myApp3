@@ -11,18 +11,24 @@ import { Kategoria, Kategorie } from 'src/app/interface/kategorie';
 export class MagazynNowyProduktComponent implements OnInit {
 
   kategorie: Kategorie[] = [];
-  podKat: Kategorie;
-
+  podKat: Kategorie = {kG: 'Zerowa', kP: ['<- Wybierz kategorię główną']};
+  setPodKatevent: number;
   constructor(private k: MagazynService) { }
 
   ngOnInit(): void {
     this.kategorie = this.k.pobierzKategorie();
-    console.log(this.kategorie);
+    console.log(this.podKat);
   }
 
-  pKid(i) {
-    // this.podKat = this.kategorie[i];
-    console.log(i);
-  }
+  setPodKat(event: any) {
+    this.setPodKatevent = event.target.value;
+    if (this.setPodKatevent < 0) {
+      this.podKat = {kG: 'Zerowa', kP: ['<- Wybierz kategorię główną']};
+    }
+    else {
+      this.podKat = this.kategorie[this.setPodKatevent];
+    }
 
+
+  }
 }

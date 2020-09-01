@@ -2,32 +2,49 @@
   <form action="">
 
     <div class="form-row">
-        <div class="form-goup col-md-6 pr-3">
+
+      <div class="form-group col-md-4">
+        <label for="nrProduktu">Nr</label>
+        <input id="nrProduktu" class="form-control" type="number" name="nrProduktu">
+      </div>
+
+        <div class="form-group col-md-4">
           <label for="kG">Kat. główna</label>
-          <select class="form-control" id="kG">
-            <option *ngFor = 'let kG of kategorie; let i = index'> {{kG.kG}} </option>
+          <select (change) = 'setPodKat($event)' class="form-control" id="kG">
+            <option [value] = '-1'>Wybierz kategorię</option>
+            <option *ngFor = 'let kG of kategorie; let i = index' [value] = 'i'> {{kG.kG}} </option>
             
           </select>
         </div>
-        <div class="form-goup col-md-6 pr-3">
+        <div class="form-group col-md-4">
           <label for="kP">Kat. poboczna</label>
           <select class="form-control" id="kP">
-            <option *ngFor = 'let pK of podKat'> {{pK.pK}} </option>
+            <option *ngFor = 'let pK of podKat.kP'> {{pK}} </option>
             
           </select>
         </div>
       </div>
 
-
-    <div class="form-row">
-      <div class="form-goup col-md-4 pr-3">
-        <label for="nrProduktu">Nr produktu / usługi</label>
-        <input id="nrProduktu" class="form-control" type="nrProduktu" name="nrProduktu">
-      </div>
-      <div class="form-goup col-md-8 pr-3">
+      <div class="form-group">
         <label for="nrProduktu">Nazwa</label>
         <input id="nrProduktu" class="form-control" type="nrProduktu" name="nrProduktu">
       </div>
+
+      <div class="form-group">
+        <label for="opis">Opis</label>
+        <textarea class="form-control" id="opis" rows="3"></textarea>
+      </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="cenaNetto">Cena zakupu (netto)</label>
+        <input id="cenaNetto" class="form-control" type="number" name="cenaNetto">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="vat">VAT</label>
+        <input id="vat" class="form-control" type="number" name="vat">
+      </div>
     </div>
+    
   </form>
 </div>
