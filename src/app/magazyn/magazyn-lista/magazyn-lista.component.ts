@@ -6,6 +6,7 @@ import { Kategorie } from 'src/app/interface/kategorie';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-magazyn-lista',
   templateUrl: './magazyn-lista.component.html',
@@ -64,7 +65,18 @@ export class MagazynListaComponent implements OnInit {
   ngOnInit(): void {
     this.all = 'Wszystkie';
     this.kategorie = this.k.pobierzKategorie();
-    this.magazyn = this.k.pobierzMagazyn();
+    // this.magazyn = this.k.pobierzMagazyn();
+
+    this.k.pobierzMagazyn().subscribe((response) => {
+      this.magazyn = response;
+    },
+      (error) => {
+        console.log('error: ' + error);
+      }
+    );
+
+
+
     this.i = 0;
     while (this.i <= this.kategorie.length - 1) {
       this.isShow.push(false);
@@ -120,7 +132,7 @@ export class MagazynListaComponent implements OnInit {
       this.podKat[k] = true;
       try {
         this.podKat[this.tempKat] = false;
-      } catch {}
+      } catch { }
     }
 
     if (k === this.tempKat) {

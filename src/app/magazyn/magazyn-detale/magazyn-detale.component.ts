@@ -21,7 +21,15 @@ export class MagazynDetaleComponent implements OnInit {
   constructor(private m: MagazynService) { }
 
   ngOnInit(): void {
-    this.doWyslania = this.m.pobierzMagazyn();
+    // this.doWyslania = this.m.pobierzMagazyn();
+
+    this.m.pobierzMagazyn().subscribe((response) => {
+      this.doWyslania = response;
+    },
+      (error) => {
+        console.log('error: ' + error);
+      }
+    );
   }
 
 

@@ -19,6 +19,7 @@ import { MagazynDetaleComponent } from './magazyn/magazyn-detale/magazyn-detale.
 import { MagazynUstawieniaComponent } from './magazyn/magazyn-ustawienia/magazyn-ustawienia.component';
 import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/magazyn-nowy-produkt.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 //import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -47,7 +48,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-  //  Ng2SearchPipeModule
+    HttpClientModule
 
   ],
   providers: [

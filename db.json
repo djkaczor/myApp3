@@ -1,0 +1,283 @@
+{
+  "Kontakty": [
+    {
+      "id": 1,
+      "imie": "Adam",
+      "nazwisko": "Pa",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Am",
+          "nrLokalu": "10",
+          "kodPocztowy": 26197,
+          "miasto": "Hunt"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Mickiewicza",
+          "nrLokalu": "6",
+          "kodPocztowy": 72100,
+          "miasto": "Gol"
+        }
+      ],
+      "tel": 1783466541777,
+      "email": "adam.pacholski1985@gmail.com"
+    },
+    {
+      "id": 2,
+      "imie": "Kubeł",
+      "nazwisko": "P",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Mickiewicza",
+          "nrLokalu": "6",
+          "kodPocztowy": 72100,
+          "miasto": "Gol"
+        }
+      ],
+      "tel": 7778889990,
+      "email": "jcob.costam@gmail.com"
+    },
+    {
+      "id": 3,
+      "imie": "Adam",
+      "nazwisko": "Pacholski",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 26197,
+          "miasto": "Huntlosen"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 26197,
+          "miasto": "Huntlosen"
+        }
+      ],
+      "tel": "12123423",
+      "email": "asad@sdgfdg.po"
+    },
+    {
+      "id": 4,
+      "imie": "Paweł",
+      "nazwisko": "Kowalczyk",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Adama Bochenka",
+          "kodPocztowy": 1111,
+          "miasto": "Krk"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Adama Bochenka",
+          "kodPocztowy": 1111,
+          "miasto": "Krk"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "imie": "Asia",
+      "nazwisko": "Pa",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 26197,
+          "miasto": "Huntlosen"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 26197,
+          "miasto": "Huntlosen"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "imie": "adam",
+      "nazwisko": "Pacholski",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 344,
+          "miasto": "Huntlosen"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Am Bahndam",
+          "nrLokalu": "10",
+          "kodPocztowy": 344,
+          "miasto": "Huntlosen"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "imie": "Adam",
+      "nazwisko": "dfgg",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Mysia",
+          "nrLokalu": "10",
+          "kodPocztowy": 64554,
+          "miasto": "Krk"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Mysia",
+          "nrLokalu": "10",
+          "kodPocztowy": 64554,
+          "miasto": "Krk"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "imie": "etergfd",
+      "nazwisko": "fdgfdgd",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "43534r",
+          "nrLokalu": "34",
+          "kodPocztowy": 3252,
+          "miasto": "Krk"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "43534r",
+          "nrLokalu": "34",
+          "kodPocztowy": 3252,
+          "miasto": "Krk"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "imie": "Paweł",
+      "nazwisko": "Pa",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Mysia",
+          "nrLokalu": "10",
+          "kodPocztowy": 4543,
+          "miasto": "Krk"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Mysia",
+          "nrLokalu": "10",
+          "kodPocztowy": 4543,
+          "miasto": "Krk"
+        }
+      ]
+    }
+  ],
+  "Magazyn": [
+    {
+      "nrProduktu": 3001,
+      "kategoria": {
+        "kG": "Płyty",
+        "kP": "Wiórowe"
+      },
+      "nazwaProduktu": "PŁYTA MEBLOWA BRZOZA OJCÓW CIEMNA 18MM",
+      "opis": "grubość - 18 mm (M), wymiary - 2800 x 2100 mm, struktura: - LN - Nordic Wood (Linea)",
+      "cenaZakupuNetto": 202.66,
+      "cenaZakupuBrutto": 225.66,
+      "ilosc": 5,
+      "jednostka": "szt"
+    },
+    {
+      "nrProduktu": 3002,
+      "kategoria": {
+        "kG": "Płyty",
+        "kP": "Wiórowe"
+      },
+      "nazwaProduktu": "PŁYTA MEBLOWA ŚWIERK ALPEJSKI 18MM",
+      "opis": "grubość - 18 mm (M), wymiary - 2800 x 2100 mm, struktura: - MO (Montana)",
+      "cenaZakupuNetto": 202.66,
+      "cenaZakupuBrutto": 225.66,
+      "ilosc": 5,
+      "jednostka": "szt"
+    },
+    {
+      "nrProduktu": 16381,
+      "kategoria": {
+        "kG": "Wkręty",
+        "kP": "do drewna"
+      },
+      "nazwaProduktu": "Wkręty 6x80",
+      "opis": "Wkręty do płyt wiórowych",
+      "cenaZakupuNetto": 49,
+      "cenaZakupuBrutto": 60.27,
+      "ilosc": 4,
+      "jednostka": "opak"
+    },
+    {
+      "nrProduktu": 16382,
+      "kategoria": {
+        "kG": "Wkręty",
+        "kP": "do metalu"
+      },
+      "nazwaProduktu": "Wkręty 6x100",
+      "opis": "Wkręty do płyt wiórowych",
+      "cenaZakupuNetto": 54,
+      "cenaZakupuBrutto": 66.42,
+      "ilosc": 2,
+      "jednostka": "opak"
+    },
+    {
+      "nrProduktu": 82645827,
+      "kategoria": {
+        "kG": "Płyty",
+        "kP": "OSB"
+      },
+      "nazwaProduktu": "Płyta OSB-3 22 mm",
+      "opis": "Płyta budowlana OSB-3 pióro wpust do zastosować budowlanych, posiadająca dobre parametry nośne. Mały format do łatwego samodzielnego montażu",
+      "cenaZakupuNetto": 34.48,
+      "cenaZakupuBrutto": 44.79,
+      "ilosc": 10,
+      "jednostka": "szt"
+    },
+    {
+      "nrProduktu": 82645826,
+      "kategoria": {
+        "kG": "Płyty",
+        "kP": "OSB"
+      },
+      "nazwaProduktu": "Płyta OSB-3 18 mm",
+      "opis": "Płyta budowlana OSB-3 pióro wpust do zastosować budowlanych, posiadająca dobre parametry nośne. Mały format do łatwego samodzielnego montażu",
+      "cenaZakupuNetto": 26.6,
+      "cenaZakupuBrutto": 34.55,
+      "ilosc": 10,
+      "jednostka": "szt"
+    },
+    {
+      "nrProduktu": 45529995,
+      "kategoria": {
+        "kG": "Wkręty",
+        "kP": "g-k"
+      },
+      "nazwaProduktu": "Wkręt 3.5 x 25 mm",
+      "opis": "Przeznaczenie: Płyta gipsowo-kartonowa, 200szt/opak.",
+      "cenaZakupuNetto": 4.54,
+      "cenaZakupuBrutto": 5.9,
+      "ilosc": 6,
+      "jednostka": "opak"
+    }
+  ]
+}

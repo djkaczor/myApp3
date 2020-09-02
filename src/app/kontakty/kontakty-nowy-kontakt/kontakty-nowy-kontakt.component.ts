@@ -49,7 +49,7 @@ export class KontaktyNowyKontaktComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._id = this.k.ostatniKontakt();
+    // this._id = this.k.ostatniKontakt();
   }
 
   add() {
@@ -62,7 +62,12 @@ export class KontaktyNowyKontaktComponent implements OnInit {
       tel: this.tel,
       email: this.email
     });
-    this.router.navigate(['/kontakty']);
+
+    // this.router.navigate(['']);
+    this.router.navigate(['/kontakty'])
+      .then(() => {
+        window.location.reload();
+      });
 
   }
 
