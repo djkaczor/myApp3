@@ -48,22 +48,26 @@ export class KontaltyListaComponent implements OnInit {
   ngOnInit() {
     this.zmiany = false;
     // this.kontakty = this.k.pobierzKontakty();
-
-    this.ko.pobierzKontakty().subscribe((response) => {
-      this.kontakty = response;
-    }
-    );
-
+    this.getKontakt();
 
   }
 
-
-  aktualizacja_test(zmiany: boolean) {
+  aktualizacja(zmiany: boolean) {
     this.zmiany = zmiany;
   }
+
+
 
   detale(i) {
     this.kontakt = this.kontakty[i];
     this.zmiany = true;
   }
+
+  getKontakt() {
+    this.ko.pobierzKontakty().subscribe((response) => {
+      this.kontakty = response;
+    }
+    );
+  }
+
 }

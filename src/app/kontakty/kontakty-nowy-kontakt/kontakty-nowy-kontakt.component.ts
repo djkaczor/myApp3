@@ -85,13 +85,15 @@ export class KontaktyNowyKontaktComponent implements OnInit {
     }
 
     else {
-      this.adres2 = {
-        typAdres: this.typAdresDoKorespondencji,
-        ul: this.ul,
-        nrLokalu: this.nrLokalu,
-        kodPocztowy: this.kodPocztowy,
-        miasto: this.miasto
-      };
+      // this.adres2 = {
+      //   typAdres: this.typAdresDoKorespondencji,
+      //   ul: this.ul,
+      //   nrLokalu: this.nrLokalu,
+      //   kodPocztowy: this.kodPocztowy,
+      //   miasto: this.miasto
+      // };
+
+      this.adres2 = this.adres1;
     }
 
     this.adres.push(this.adres1, this.adres2);

@@ -52,19 +52,24 @@ export class KontaktyService {
   constructor(private http: HttpClient) { }
 
 
-  url = 'http://localhost:3000';
+  url = 'http://localhost:3000/Kontakty';
 
 
   pobierzKontakty() {
     // return this.kontakty;
-    return this.http.get<Kontakt[]>(this.url + '/Kontakty');
+    return this.http.get<Kontakt[]>(this.url);
   }
 
   dodajKontakt(kontakt: Kontakt) {
     // this.kontakty.push(kontakt);
-    this.http.post(this.url + '/Kontakty', kontakt).toPromise();
+    this.http.post(this.url, kontakt).toPromise();
 
   }
+
+  deleteKontakt(id: number) {
+    this.http.delete(this.url + '/' + id).subscribe();
+  }
+
 
   ostatniKontakt() {
     // const id: number = this.kontakty[this.kontakty.length - 1].id;
