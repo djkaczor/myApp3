@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class KontaktyService {
 
+  
+
   // private kontakty: Kontakt[] = [
   //   {
   //     id: 1,
@@ -64,6 +66,10 @@ export class KontaktyService {
     // this.kontakty.push(kontakt);
     this.http.post(this.url, kontakt).toPromise();
 
+  }
+
+  edytujKontakt(id: number, kontakt: Kontakt) {
+    this.http.put(this.url + '/' + id, kontakt).subscribe();
   }
 
   deleteKontakt(id: number) {

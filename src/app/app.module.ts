@@ -20,6 +20,7 @@ import { MagazynUstawieniaComponent } from './magazyn/magazyn-ustawienia/magazyn
 import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/magazyn-nowy-produkt.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edycja.component';
 
 //import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -38,6 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     MagazynUstawieniaComponent,
     MagazynNowyProduktComponent,
     FilterPipe,
+    KontaktyEdycjaComponent,
+
 
   ],
   imports: [

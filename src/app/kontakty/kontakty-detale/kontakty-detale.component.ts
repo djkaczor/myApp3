@@ -14,25 +14,32 @@ export class KontaktyDetaleComponent implements OnInit {
   @Input() kontakt: Kontakt;
   @Input() zmiany: boolean;
   @Output() zamknijDetale = new EventEmitter<boolean>();
-  
+  // @Output() otworzEdycje = new EventEmitter<boolean>();
+
+  edycja: boolean;
 
   constructor(private k: KontaktyService) { }
 
   id: number;
 
   ngOnInit() {
+    this.edycja = false;
   }
 
   zamknij() {
     this.zmiany = !this.zmiany;
     this.zamknijDetale.emit(this.zmiany);
-    window.location.reload();
+
+  }
+
+  edytuj() {
+    this.edycja = !this.edycja;
   }
 
   delete() {
     this.id = this.kontakt.id;
     this.k.deleteKontakt(this.id);
     this.zamknij();
-
+    window.location.reload();
   }
 }

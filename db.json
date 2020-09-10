@@ -1,5 +1,23 @@
 {
-  "Kontakty": [],
+  "Kontakty": [
+    {
+      "id": 1,
+      "imie": "Adam",
+      "nazwisko": "Pacholski",
+      "adres": [
+        {
+          "typAdres": "Adres zamieszkania",
+          "ul": "Am Bahndam",
+          "miasto": "Huntlosen"
+        },
+        {
+          "typAdres": "Adres do korespondencji",
+          "ul": "Am Bahndam",
+          "miasto": "Huntlosen"
+        }
+      ]
+    }
+  ],
   "Magazyn": [
     {
       "nrProduktu": 3001,

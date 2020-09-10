@@ -56,8 +56,6 @@ export class KontaltyListaComponent implements OnInit {
     this.zmiany = zmiany;
   }
 
-
-
   detale(i) {
     this.kontakt = this.kontakty[i];
     this.zmiany = true;
