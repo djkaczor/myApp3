@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Adres } from 'src/app/interface/adres';
 import { Kontakt } from 'src/app/interface/kontakt';
 import { KontaktyService } from 'src/app/service/kontakty.service';
@@ -11,7 +12,7 @@ import { KontaktyService } from 'src/app/service/kontakty.service';
 export class KontaktyEdycjaComponent implements OnInit {
 
   @Input() kontakt: Kontakt;
-  // @Input() edycja: boolean;
+
 
 
   isChecked: boolean;
@@ -19,7 +20,7 @@ export class KontaktyEdycjaComponent implements OnInit {
   typAdres = 'Adres zamieszkania';
   typAdresDoKorespondencji = 'Adres do korespondencji';
 
-  id: number;
+  id: string;
 
   // Dane klienta
   imie: string;
@@ -44,13 +45,11 @@ export class KontaktyEdycjaComponent implements OnInit {
   // E-mail
   email: string;
 
-  constructor(private k: KontaktyService) { }
+  constructor(private k: KontaktyService, private router: Router) { }
 
   ngOnInit(): void {
 
-
-
-    // this._id = this.kontakty[this.kontakty.length].id;
+    // this.kontakt = this.k.kontakt;
 
     this.id = this.kontakt.id;
 
@@ -59,15 +58,15 @@ export class KontaktyEdycjaComponent implements OnInit {
     this.nazwisko = this.kontakt.nazwisko;
 
     // Adres
-    this.ul = this.kontakt.adres[0].ul;
-    this.nrLokalu = this.kontakt.adres[0].nrLokalu;
-    this.kodPocztowy = this.kontakt.adres[0].kodPocztowy;
-    this.miasto = this.kontakt.adres[0].miasto;
+    // this.ul = this.kontakt.adres[0].ul;
+    // this.nrLokalu = this.kontakt.adres[0].nrLokalu;
+    // this.kodPocztowy = this.kontakt.adres[0].kodPocztowy;
+    // this.miasto = this.kontakt.adres[0].miasto;
 
-    this.ul2 = this.kontakt.adres[1].ul;
-    this.nrLokalu2 = this.kontakt.adres[1].nrLokalu;
-    this.kodPocztowy2 = this.kontakt.adres[1].kodPocztowy;
-    this.miasto2 = this.kontakt.adres[1].miasto;
+    // this.ul2 = this.kontakt.adres[1].ul;
+    // this.nrLokalu2 = this.kontakt.adres[1].nrLokalu;
+    // this.kodPocztowy2 = this.kontakt.adres[1].kodPocztowy;
+    // this.miasto2 = this.kontakt.adres[1].miasto;
 
     // Telefon
     this.tel = this.kontakt.tel;
@@ -83,14 +82,13 @@ export class KontaktyEdycjaComponent implements OnInit {
 
   edit() {
     this.dodajAdres();
-    this.k.edytujKontakt(this.id, {
-      id: this.id,
-      imie: this.imie,
-      nazwisko: this.nazwisko,
-      adres: this.adres,
-      tel: this.tel,
-      email: this.email
-    });
+
+
+    this.router.navigate(['/kontakty'])
+      .then(() => {
+        window.location.reload();
+      });
+
   }
 
   dodajAdres() {

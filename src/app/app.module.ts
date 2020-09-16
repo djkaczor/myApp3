@@ -8,7 +8,7 @@ import { KontaktyService } from './service/kontakty.service';
 import { KontaktyDetaleComponent } from './kontakty/kontakty-detale/kontakty-detale.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { MagazynService} from './service/magazyn.service';
+import { MagazynService } from './service/magazyn.service';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { KontaktyNowyKontaktComponent } from './kontakty/kontakty-nowy-kontakt/kontakty-nowy-kontakt.component';
@@ -21,6 +21,10 @@ import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/maga
 import { FilterPipe } from './pipe/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edycja.component';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
 
 //import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -51,7 +55,10 @@ import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edy
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    AngularFireModule.initializeApp(environment.firebase, 'myApp3'),
+    AngularFirestoreModule
 
   ],
   providers: [

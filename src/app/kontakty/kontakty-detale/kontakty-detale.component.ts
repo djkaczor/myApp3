@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Kontakt } from 'src/app/interface/kontakt';
 import { Adres } from 'src/app/interface/adres';
 import { KontaktyService } from 'src/app/service/kontakty.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kontakty-detale',
@@ -13,33 +15,30 @@ export class KontaktyDetaleComponent implements OnInit {
 
   @Input() kontakt: Kontakt;
   @Input() zmiany: boolean;
+  @Input() adres: Adres[] = [];
   @Output() zamknijDetale = new EventEmitter<boolean>();
-  // @Output() otworzEdycje = new EventEmitter<boolean>();
+  @Output() otworzEdycje = new EventEmitter<boolean>();
 
-  edycja: boolean;
+  nrKlienta: number;
+  constructor(private k: KontaktyService, private router: Router) { }
 
-  constructor(private k: KontaktyService) { }
+  id: string;
 
-  id: number;
 
   ngOnInit() {
-    this.edycja = false;
+
   }
 
   zamknij() {
     this.zmiany = !this.zmiany;
     this.zamknijDetale.emit(this.zmiany);
-
   }
 
-  edytuj() {
-    this.edycja = !this.edycja;
+  edycja() {
+    // this.k.afs.collection('kontakty').valueChanges().subscribe( v => console.log(v.length));
   }
 
   delete() {
-    this.id = this.kontakt.id;
-    this.k.deleteKontakt(this.id);
-    this.zamknij();
-    window.location.reload();
+
   }
 }

@@ -7,12 +7,14 @@ import { MagazynStronaComponent } from './magazyn/magazyn-strona/magazyn-strona.
 import { MagazynListaComponent } from './magazyn/magazyn-lista/magazyn-lista.component';
 import { MagazynUstawieniaComponent } from './magazyn/magazyn-ustawienia/magazyn-ustawienia.component';
 import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/magazyn-nowy-produkt.component';
+import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edycja.component';
 
 
 const routes: Routes = [
   { path: 'kontakty', component: KontaktyStronaComponent, children: [
     { path: '', component: KontaltyListaComponent },
-    { path: 'Dodaj-kontakt', component: KontaktyNowyKontaktComponent }
+    { path: 'Dodaj-kontakt', component: KontaktyNowyKontaktComponent },
+    { path: 'Edytuj-kontakt', component: KontaktyEdycjaComponent}
   ]},
 
   { path: 'magazyn', component: MagazynStronaComponent, children: [

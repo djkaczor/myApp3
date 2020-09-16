@@ -4,6 +4,8 @@ import { RouterLink, Router } from '@angular/router';
 
 import { Adres } from 'src/app/interface/adres';
 import { FormControl } from '@angular/forms';
+import { Kontakt } from 'src/app/interface/kontakt';
+import { delay } from 'rxjs/operators';
 
 
 @Component({
@@ -15,33 +17,39 @@ export class KontaktyNowyKontaktComponent implements OnInit {
 
 
   isChecked = false;
-  typAdres = 'Adres zamieszkania';
-  typAdresDoKorespondencji = 'Adres do korespondencji';
-  _id: number;
-  id: number;
+  // typAdres = 'Adres zamieszkania';
+  // typAdresDoKorespondencji = 'Adres do korespondencji';
+  //adres: Adres[] = [];
 
-  // Dane klienta
-  imie: string;
-  nazwisko: string;
+  nrK: number;
+  newID: string;
 
-  // Adres
-  ul: string;
-  nrLokalu: string;
-  kodPocztowy: number;
-  miasto: string;
-  adres1: Adres;
+  // Kontakt
+  kontakt: Kontakt = {
+    nrKlienta: null,
+    imie: '',
+    nazwisko: '',
+    tel: null,
+    email: '',
+  };
 
-  ul2: string;
-  nrLokalu2: string;
-  kodPocztowy2: number;
-  miasto2: string;
-  adres2: Adres;
-  adres: Adres[] = [];
+  // Adres 1
+  adres1: Adres = {
+    typAdres: 'Adres zamieszkania',
+    ul: '',
+    nrLokalu: '',
+    kodPocztowy: null,
+    miasto: '',
+  };
 
-  // Telefon
-  tel: number;
-  // E-mail
-  email: string;
+  // Adres 2
+  adres2: Adres = {
+    typAdres: 'Adres do korespondencji',
+    ul: '',
+    nrLokalu: '',
+    kodPocztowy: null,
+    miasto: ''
+  };
 
   constructor(
     private k: KontaktyService,
@@ -50,53 +58,38 @@ export class KontaktyNowyKontaktComponent implements OnInit {
 
   ngOnInit() {
     // this._id = this.k.ostatniKontakt();
+    this.k.afs.collection('kontakty').valueChanges().subscribe( v => this.nrK = v.length);
+
   }
 
   add() {
-    this.dodajAdres();
-    this.k.dodajKontakt({
-      id: this._id + 1,
-      imie: this.imie,
-      nazwisko: this.nazwisko,
-      adres: this.adres,
-      tel: this.tel,
-      email: this.email
-    });
+    this.newID = this.k.afs.createId();
+    this.kontakt.nrKlienta = this.nrK + 1;
 
-    // this.router.navigate(['']);
-    this.router.navigate(['/kontakty'])
-      .then(() => {
-        window.location.reload();
-      });
+    this.k.dodajKontakt(this.newID, this.kontakt);
+    delay(2000);
+    this.addAdres(this.newID);
 
+    this.router.navigate(['/kontakty']);
+      // .then(() => {
+      //   window.location.reload();
+      // });
   }
 
-  dodajAdres() {
-    this.adres1 = { typAdres: this.typAdres, ul: this.ul, nrLokalu: this.nrLokalu, kodPocztowy: this.kodPocztowy, miasto: this.miasto };
-    if (this.isChecked === true) {
+  addAdres(id: string) {
+    id = this.newID;
 
-      this.adres2 = {
-        typAdres: this.typAdresDoKorespondencji,
-        ul: this.ul2,
-        nrLokalu: this.nrLokalu2,
-        kodPocztowy: this.kodPocztowy2,
-        miasto: this.miasto2
-      };
+    this.k.dodajAdres(id, this.adres1);
+
+    if (this.isChecked === true) {
+      this.k.dodajAdres(id, this.adres2);
     }
 
     else {
-      this.adres2 = {
-        typAdres: this.typAdresDoKorespondencji,
-        ul: this.ul,
-        nrLokalu: this.nrLokalu,
-        kodPocztowy: this.kodPocztowy,
-        miasto: this.miasto
-      };
-
-      //this.adres2 = this.adres1;
+      this.adres1.typAdres = 'Adres do korespondencji';
+      this.k.dodajAdres(id, this.adres1);
     }
 
-    this.adres.push(this.adres1, this.adres2);
 
   }
 

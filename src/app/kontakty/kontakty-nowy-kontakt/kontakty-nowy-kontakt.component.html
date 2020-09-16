@@ -6,11 +6,11 @@
     <div class="form-row">
       <div class="form-group col-md-6 pr-3">
         <label for="imie"><span>*</span> Imię:</label>
-        <input id="imie" [(ngModel)]="imie" class="form-control" type="text" name="imie" />
+        <input id="imie" [(ngModel)]="kontakt.imie" class="form-control" type="text" name="imie" />
       </div>
       <div class="form-group col-md-6 pl-3">
         <label for="nazwisko"><span>*</span> Nazwisko:</label>
-        <input id="nazwisko" [(ngModel)]="nazwisko" class="form-control" type="text" name="nazwisko" />
+        <input id="nazwisko" [(ngModel)]="kontakt.nazwisko" class="form-control" type="text" name="nazwisko" />
       </div>
     </div>
 
@@ -18,7 +18,7 @@
 
     <!-- Dodawanie adresu -->
 
-    <div class="form-row" *ngFor="let adres of adres; let i = index">
+    <!-- <div class="form-row" *ngFor="let adres of adres; let i = index">
       <div class="form-group col-md-3 pr-3">
         <div>Adres {{i+1}}. </div>
       </div>
@@ -29,27 +29,27 @@
         <div>{{adres.kodPocztowy}} {{adres.miasto}} </div>
       </div>
       <div class="border-bottom pb-2 mb-3"></div>
-    </div>
+    </div> -->
 
     <div class="form-row">
       <div class="form-group col-md-10 pr-3">
         <label for="ul"><span>*</span> Ulica:</label>
-        <input id="ul" [(ngModel)]="ul" class="form-control" type="text" name="ul" />
+        <input id="ul" [(ngModel)]="adres1.ul" class="form-control" type="text" name="ul" />
       </div>
       <div class="form-group col-md-2 pl-3">
         <label for="nrLokalu">Numer:</label>
-        <input id="nrLokalu" [(ngModel)]="nrLokalu" class="form-control" type="text" name="nrLokalu" />
+        <input id="nrLokalu" [(ngModel)]="adres1.nrLokalu" class="form-control" type="text" name="nrLokalu" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-3 pr-3">
         <label for="kodPocztowy"><span>*</span> Kod pocztowy:</label>
-        <input type="number" id="kodPocztowy" [(ngModel)]="kodPocztowy" class="form-control" name="kodPocztowy" />
+        <input type="number" id="kodPocztowy" [(ngModel)]="adres1.kodPocztowy" class="form-control" name="kodPocztowy" />
       </div>
       <div class="form-group col-md-9 pl-3 ">
         <label for="miasto"><span>*</span> Miasto:</label>
-        <input id="miasto" [(ngModel)]="miasto" class="form-control" type="text" name="miasto" />
+        <input id="miasto" [(ngModel)]="adres1.miasto" class="form-control" type="text" name="miasto" />
       </div>
     </div>
 
@@ -65,22 +65,22 @@
       <div class="form-row">
         <div class="form-group col-md-10 pr-3">
           <label for="ul2"><span>*</span> Ulica:</label>
-          <input id="ul2" [(ngModel)]="ul2" class="form-control" type="text" name="ul2" />
+          <input id="ul2" [(ngModel)]="adres2.ul" class="form-control" type="text" name="ul2" />
         </div>
         <div class="form-group col-md-2 pl-3">
           <label for="nrLokalu2">Numer:</label>
-          <input id="nrLokalu2" [(ngModel)]="nrLokalu2" class="form-control" type="text" name="nrLokalu2" />
+          <input id="nrLokalu2" [(ngModel)]="adres2.nrLokalu" class="form-control" type="text" name="nrLokalu2" />
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-3 pr-3">
           <label for="kodPocztowy2"><span>*</span> Kod pocztowy:</label>
-          <input type="number" id="kodPocztowy2" [(ngModel)]="kodPocztowy2" class="form-control" name="kodPocztowy2" />
+          <input type="number" id="kodPocztowy" [(ngModel)]="adres2.kodPocztowy" class="form-control" name="kodPocztowy2" />
         </div>
         <div class="form-group col-md-9 pl-3 ">
           <label for="miasto2"><span>*</span> Miasto:</label>
-          <input id="miasto2" [(ngModel)]="miasto2" class="form-control" type="text" name="miasto2" />
+          <input id="miasto2" [(ngModel)]="adres2.miasto" class="form-control" type="text" name="miasto2" />
         </div>
       </div>
     </div>
@@ -93,19 +93,19 @@
         <header class="border-bottom mt-4 mb-4"><i class="fas fa-phone mr-2"></i>Kontakt telefoniczny z klientem
         </header>
         <label for="tel"> Telefon kontaktowy:</label>
-        <input id="tel" [(ngModel)]="tel" class="form-control" type="tel" name="tel" />
+        <input id="tel" [(ngModel)]="kontakt.tel" class="form-control" type="tel" name="tel" />
       </div>
 
       <div class="form-group col-md-6 pl-3">
         <header class="border-bottom mt-4  mb-4"><i class="fas fa-at mr-2"></i>Kontakt e-mailowy z klientem</header>
         <label for="email"> E-mail:</label>
-        <input id="email" [(ngModel)]="email" class="form-control" type="email" name="email" />
+        <input id="email" [(ngModel)]="kontakt.email" class="form-control" type="email" name="email" />
       </div>
 
     </div>
 
 <div class="d-flex justify-content-center"> 
-  <button type="submit" [disabled]="!imie || !nazwisko" class="btn btn-success mt-3 mb-5">Zapisz
+  <button type="submit" class="btn btn-success mt-3 mb-5">Zapisz
       kontakt</button>
 </div>
     

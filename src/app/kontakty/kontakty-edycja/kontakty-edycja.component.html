@@ -1,114 +1,114 @@
 <div class="myContainer">
 
-    <header class=" mb-4 border-bottom"><i class="far fa-address-card mr-2"></i>Proszę podać dane klinta</header>
-    <form (ngSubmit)="edit()" action="">
-  
-      <div class="form-row">
-        <div class="form-group col-md-6 pr-3">
-          <label for="imie"><span>*</span> Imię:</label>
-          <input id="imie" [(ngModel)]="imie" class="form-control" type="text" name="imie" />
-        </div>
-        <div class="form-group col-md-6 pl-3">
-          <label for="nazwisko"><span>*</span> Nazwisko:</label>
-          <input id="nazwisko" [(ngModel)]="nazwisko" class="form-control" type="text" name="nazwisko" />
-        </div>
+  <header class=" mb-4 border-bottom"><i class="far fa-address-card mr-2"></i>Zmień dane klienta</header>
+  <form (ngSubmit)="edit()" action="">
+
+    <div class="form-row">
+      <div class="form-group col-md-6 pr-3">
+        <label for="imie"><span>*</span> Imię:</label>
+        <input id="imie" [(ngModel)]="imie" class="form-control" type="text" name="imie" />
       </div>
-  
-      <header class="border-bottom mt-4  mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Adres klienta</header>
-  
-      <!-- Dodawanie adresu -->
-  
-      <!-- <div class="form-row" *ngFor="let adres of adres; let i = index">
-        <div class="form-group col-md-3 pr-3">
-          <div>Adres {{i+1}}. </div>
-        </div>
-        <div class="form-group col pr-3">
-          <div>{{adres.ul}} {{adres.nrLokalu}} </div>
-        </div>
-        <div class="form-group col pr-3">
-          <div>{{adres.kodPocztowy}} {{adres.miasto}} </div>
-        </div>
-        <div class="border-bottom pb-2 mb-3"></div>
-      </div> -->
-  
+      <div class="form-group col-md-6 pl-3">
+        <label for="nazwisko"><span>*</span> Nazwisko:</label>
+        <input id="nazwisko" [(ngModel)]="nazwisko" class="form-control" type="text" name="nazwisko" />
+      </div>
+    </div>
+
+    <header class="border-bottom mt-4  mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Zmień adres klienta</header>
+
+    <!-- Dodawanie adresu -->
+
+    <!-- <div class="form-row" *ngFor="let adres of adres; let i = index">
+      <div class="form-group col-md-3 pr-3">
+        <div>Adres {{i+1}}. </div>
+      </div>
+      <div class="form-group col pr-3">
+        <div>{{adres.ul}} {{adres.nrLokalu}} </div>
+      </div>
+      <div class="form-group col pr-3">
+        <div>{{adres.kodPocztowy}} {{adres.miasto}} </div>
+      </div>
+      <div class="border-bottom pb-2 mb-3"></div>
+    </div> -->
+
+    <div class="form-row">
+      <div class="form-group col-md-10 pr-3">
+        <label for="ul"><span>*</span> Ulica:</label>
+        <input id="ul" [(ngModel)]="ul" class="form-control" type="text" name="ul" />
+      </div>
+      <div class="form-group col-md-2 pl-3">
+        <label for="nrLokalu">Numer:</label>
+        <input id="nrLokalu" [(ngModel)]="nrLokalu" class="form-control" type="text" name="nrLokalu" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3 pr-3">
+        <label for="kodPocztowy"><span>*</span> Kod pocztowy:</label>
+        <input type="number" id="kodPocztowy" [(ngModel)]="kodPocztowy" class="form-control" name="kodPocztowy" />
+      </div>
+      <div class="form-group col-md-9 pl-3 ">
+        <label for="miasto"><span>*</span> Miasto:</label>
+        <input id="miasto" [(ngModel)]="miasto" class="form-control" type="text" name="miasto" />
+      </div>
+    </div>
+
+    <!-- Dodawanie adresu korespondencyjnego -->
+
+    <div class="mt-1 mb-4">
+      <input (click)="Checked()" data-toggle='collapse' data-target='#col1' class="checkbox-effect checkbox-effect-6"
+        id="get-up-6" type="checkbox" value="get-up-6" name="get-up-6" />
+      <label for="get-up-6">Zmień adres do korespondencji</label>
+    </div>
+
+    <div id="col1" class="collapse">
       <div class="form-row">
         <div class="form-group col-md-10 pr-3">
-          <label for="ul"><span>*</span> Ulica:</label>
-          <input id="ul" [(ngModel)]="ul" class="form-control" type="text" name="ul" />
+          <label for="ul2"><span>*</span> Ulica:</label>
+          <input id="ul2" [(ngModel)]="ul2" class="form-control" type="text" name="ul2" />
         </div>
         <div class="form-group col-md-2 pl-3">
-          <label for="nrLokalu">Numer:</label>
-          <input id="nrLokalu" [(ngModel)]="nrLokalu" class="form-control" type="text" name="nrLokalu" />
+          <label for="nrLokalu2">Numer:</label>
+          <input id="nrLokalu2" [(ngModel)]="nrLokalu2" class="form-control" type="text" name="nrLokalu2" />
         </div>
       </div>
-  
+
       <div class="form-row">
         <div class="form-group col-md-3 pr-3">
-          <label for="kodPocztowy"><span>*</span> Kod pocztowy:</label>
-          <input type="number" id="kodPocztowy" [(ngModel)]="kodPocztowy" class="form-control" name="kodPocztowy" />
+          <label for="kodPocztowy2"><span>*</span> Kod pocztowy:</label>
+          <input type="number" id="kodPocztowy2" [(ngModel)]="kodPocztowy2" class="form-control" name="kodPocztowy2" />
         </div>
         <div class="form-group col-md-9 pl-3 ">
-          <label for="miasto"><span>*</span> Miasto:</label>
-          <input id="miasto" [(ngModel)]="miasto" class="form-control" type="text" name="miasto" />
+          <label for="miasto2"><span>*</span> Miasto:</label>
+          <input id="miasto2" [(ngModel)]="miasto2" class="form-control" type="text" name="miasto2" />
         </div>
       </div>
-  
-      <!-- Dodawanie adresu korespondencyjnego -->
-  
-      <div class="mt-1 mb-4">
-        <input (click)="Checked()" data-toggle='collapse' data-target='#col1' class="checkbox-effect checkbox-effect-6"
-          id="get-up-6" type="checkbox" value="get-up-6" name="get-up-6" />
-        <label for="get-up-6">Dodaj adres do korespondencji</label>
+    </div>
+
+    <!-- Dodawanie telefony / E-mail-->
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6 pr-3">
+        <header class="border-bottom mt-4 mb-4"><i class="fas fa-phone mr-2"></i>Zmień kontakt telefoniczny z klientem
+        </header>
+        <label for="tel"> Telefon kontaktowy:</label>
+        <input id="tel" [(ngModel)]="tel" class="form-control" type="tel" name="tel" />
       </div>
-  
-      <div id="col1" class="collapse">
-        <div class="form-row">
-          <div class="form-group col-md-10 pr-3">
-            <label for="ul2"><span>*</span> Ulica:</label>
-            <input id="ul2" [(ngModel)]="ul2" class="form-control" type="text" name="ul2" />
-          </div>
-          <div class="form-group col-md-2 pl-3">
-            <label for="nrLokalu2">Numer:</label>
-            <input id="nrLokalu2" [(ngModel)]="nrLokalu2" class="form-control" type="text" name="nrLokalu2" />
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="form-group col-md-3 pr-3">
-            <label for="kodPocztowy2"><span>*</span> Kod pocztowy:</label>
-            <input type="number" id="kodPocztowy2" [(ngModel)]="kodPocztowy2" class="form-control" name="kodPocztowy2" />
-          </div>
-          <div class="form-group col-md-9 pl-3 ">
-            <label for="miasto2"><span>*</span> Miasto:</label>
-            <input id="miasto2" [(ngModel)]="miasto2" class="form-control" type="text" name="miasto2" />
-          </div>
-        </div>
+
+      <div class="form-group col-md-6 pl-3">
+        <header class="border-bottom mt-4  mb-4"><i class="fas fa-at mr-2"></i>Zmień kontakt e-mailowy z klientem</header>
+        <label for="email"> E-mail:</label>
+        <input id="email" [(ngModel)]="email" class="form-control" type="email" name="email" />
       </div>
-  
-      <!-- Dodawanie telefony / E-mail-->
-  
-      <div class="form-row">
-  
-        <div class="form-group col-md-6 pr-3">
-          <header class="border-bottom mt-4 mb-4"><i class="fas fa-phone mr-2"></i>Kontakt telefoniczny z klientem
-          </header>
-          <label for="tel"> Telefon kontaktowy:</label>
-          <input id="tel" [(ngModel)]="tel" class="form-control" type="tel" name="tel" />
-        </div>
-  
-        <div class="form-group col-md-6 pl-3">
-          <header class="border-bottom mt-4  mb-4"><i class="fas fa-at mr-2"></i>Kontakt e-mailowy z klientem</header>
-          <label for="email"> E-mail:</label>
-          <input id="email" [(ngModel)]="email" class="form-control" type="email" name="email" />
-        </div>
-  
-      </div>
-  
-  <div class="d-flex justify-content-center"> 
-    <button type="submit" [disabled]="!imie || !nazwisko" class="btn btn-success mt-3 mb-5">Zapisz
-        zmiany</button>
-  </div>
-      
-  
-    </form>
-  </div>
+
+    </div>
+
+<div class="d-flex justify-content-center"> 
+  <button type="submit" class="btn btn-success mt-3 mb-5">Zapisz
+      zmiany</button>
+</div>
+    
+
+  </form>
+</div>

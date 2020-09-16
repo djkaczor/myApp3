@@ -1,10 +1,13 @@
+import { NumberValueAccessor } from '@angular/forms';
 import { Adres } from './adres';
 
 export interface Kontakt {
-  id: number;
+  id?: string;
+  nrKlienta?: number;
   imie?: string;
   nazwisko?: string;
-  adres?: Adres[];
   tel?: number;
   email?: string;
+  // faktury?: number;
+  // status?: boolean;
 }

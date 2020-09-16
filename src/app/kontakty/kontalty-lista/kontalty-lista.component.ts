@@ -4,6 +4,7 @@ import { KontaktyService } from 'src/app/service/kontakty.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { RequiredValidator } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
+import { Adres } from 'src/app/interface/adres';
 
 @Component({
   selector: 'app-kontalty-lista',
@@ -36,14 +37,22 @@ import { error } from '@angular/compiler/src/util';
 export class KontaltyListaComponent implements OnInit {
 
   zmiany: boolean;
-  kontakty: Kontakt[];
+
+  kontakty: Kontakt[] = [];
+  adres: Adres[] = [];
   isshow = false;
   kontakt: Kontakt;
   colorA = '#3b5b96';
   destroyed: any;
+  uid: string;
 
 
-  constructor(private ko: KontaktyService) { }
+  constructor(private ks: KontaktyService) {
+    // this.ko.pobierzKontakty().subscribe((response: Kontakt[]) => {
+    //   this.kontakty = response;
+    // }
+    // );
+  }
 
   ngOnInit() {
     this.zmiany = false;
@@ -54,18 +63,42 @@ export class KontaltyListaComponent implements OnInit {
 
   aktualizacja(zmiany: boolean) {
     this.zmiany = zmiany;
+    this.getKontakt();
   }
+
 
   detale(i) {
     this.kontakt = this.kontakty[i];
+    this.uid = this.kontakty[i].id.toString();
+    this.ks.pobierzAdres(this.uid).subscribe(adres => {
+      this.adres = adres;
+     
+    });
     this.zmiany = true;
   }
 
+  getAdres(id: number) {
+    this.uid = this.kontakty[id].id.toString();
+    this.ks.pobierzAdres(this.uid).subscribe(adres => {
+      this.adres = adres;
+      
+    });
+  }
+
+
   getKontakt() {
-    this.ko.pobierzKontakty().subscribe((response) => {
-      this.kontakty = response;
-    }
-    );
+    // this.ks.pobierzKontakty().subscribe((response: Kontakt[]) => {
+    //   this.kontakty = response;
+    // }
+    // );
+
+
+    this.ks.pobierzKontakty().subscribe(kontakty => {
+      this.kontakty = kontakty;
+      
+    });
+
+
   }
 
 }

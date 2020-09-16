@@ -1,24 +1,24 @@
 <div class="myContainer">
   <div class="row border_bottom">
     <div class="col ">
-      <header><span class="pr-2">[ {{kontakt.id}} ]</span> {{kontakt.imie}} {{kontakt.nazwisko}} </header>
+      <header><span class="pr-2">[ {{kontakt.nrKlienta}} ]</span> {{kontakt.imie}} {{kontakt.nazwisko}} </header>
     </div>
     <div class="col d-flex justify-content-end align-items-center">
-      <i class="fas fa-user-cog pr-3 set" (click) = "edytuj()" ></i>
+      <i class="fas fa-user-cog pr-3 set" (click) = 'edycja()' ></i>
       <i class="far fa-trash-alt pr-3 set" (click) = "delete()"></i>
       <i class="far fa-times-circle set" alt = "zamknij" (click) = "zamknij()"></i>
     </div>
   </div>
 
-  <div *ngIf = '!edycja' class="row mt-5 border_bottom pb-3 mb-4">
-    <div class="col border_dashed seting" *ngFor="let a of kontakt.adres">
-      <h5><i class="fas fa-map-marker-alt mr-2"></i> {{a.typAdres}} </h5>
+  <div  class="row mt-5 border_bottom pb-3 mb-4">
+    <div class="col border_dashed seting" *ngFor="let a of adres">
+      <h5><i class="fas fa-map-marker-alt mr-2"></i>{{a.typAdres}} </h5>
       <div>Ul. {{a.ul}} {{a.nrLokalu}}</div>
       <div> {{a.kodPocztowy}} {{a.miasto}}</div>
     </div>
   </div>
 
-  <div *ngIf = '!edycja' class="row">
+  <!-- <div class="row">
     <div *ngIf = "kontakt.tel" class="col border_dashed seting">
       <h5><i class="fas fa-phone mr-2"></i>Telefon:</h5>
       <div> {{kontakt.tel}} </div>
@@ -29,18 +29,18 @@
       <div> {{kontakt.email}} </div>
     </div>
 
-  </div>
+  </div> -->
 
-  <div *ngIf = 'edycja' class="row mt-5 border_bottom pb-3 mb-4">
-    <div class="col  seting">
-      <app-kontakty-edycja [kontakt] = "kontakt"></app-kontakty-edycja>
-    </div>
-  </div>
+ 
     
   </div>
 
   
-
+ <!-- <div *ngIf = 'edycja' class="row mt-5 border_bottom pb-3 mb-4">
+    <div class="col  seting">
+      <app-kontakty-edycja [kontakt] = "kontakt"></app-kontakty-edycja>
+    </div>
+  </div> -->
 
   <!-- <div class="row">
   <div class="col">

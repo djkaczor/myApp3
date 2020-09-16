@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KontaktyService } from 'src/app/service/kontakty.service';
 
 @Component({
   selector: 'app-kontakty-strona',
@@ -13,5 +14,6 @@ export class KontaktyStronaComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
