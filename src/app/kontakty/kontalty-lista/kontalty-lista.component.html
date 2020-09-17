@@ -14,7 +14,7 @@
       <div class="row pb-2 pt-3 focus" *ngFor = "let k of kontakty; let i = index" (click) = detale(i)>
         <div [ngClass] = "!zmiany ? 'col-md-1' : 'col-md-2'"  class="border_dashed"></div>
         <div [ngClass] = "!zmiany ? 'col-md-3' : 'col'" class="border_dashed">{{k.imie}} {{k.nazwisko}}</div>
-        <div *ngIf = "!zmiany" class="col-md-2 border_dashed"></div>
+        <div *ngIf = "!zmiany" class="col-md-2 border_dashed">{{k.tel}}</div>
         <div *ngIf = "!zmiany" class="col-md-2 border_dashed"></div>
         <div *ngIf = "!zmiany" class="col border_dashed"></div>
       </div>

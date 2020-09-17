@@ -13,51 +13,9 @@ import { AriaDescriber } from '@angular/cdk/a11y';
 export class KontaktyService {
 
 
-
-  // private kontakty: Kontakt[] = [
-  //   {
-  //     id: 1,
-  //     imie: 'Adam',
-  //     nazwisko: 'Pa',
-  //     adres: [
-  //       {
-  //         typAdres: 'Adres zamieszkania',
-  //         ul: 'Am',
-  //         nrLokalu: '10',
-  //         kodPocztowy: 26197,
-  //         miasto: 'Hunt'
-  //       },
-  //       {
-  //         typAdres: 'Adres do korespondencji',
-  //         ul: 'Mickiewicza',
-  //         nrLokalu: '6',
-  //         kodPocztowy: 72100,
-  //         miasto: 'Gol'
-  //       }
-  //     ],
-  //     tel: 1783466541777,
-  //     email: 'adam.pacholski1985@gmail.com',
-  //   },
-  //   {
-  //     id: 2,
-  //     imie: 'Kubeł',
-  //     nazwisko: 'P',
-  //     adres: [
-  //       {
-  //         typAdres: 'Adres zamieszkania',
-  //         ul: 'Mickiewicza',
-  //         nrLokalu: '6',
-  //         kodPocztowy: 72100,
-  //         miasto: 'Gol'
-  //       }
-  //     ],
-  //     tel: 7778889990,
-  //     email: 'jcob.costam@gmail.com',
-  //   }
-  // ];
-
   kontaktyCollection: AngularFirestoreCollection<Kontakt>;
   adresyCollection: AngularFirestoreCollection<Adres>;
+  kontaktDoc: AngularFirestoreDocument<Kontakt>;
 
   kontakty: Observable<Kontakt[]>;
   adres: Observable<Adres[]>;
@@ -109,12 +67,17 @@ export class KontaktyService {
 
   }
 
-  dodajKontakt(id:string, kontakt: Kontakt) {
+  dodajKontakt(id: string, kontakt: Kontakt) {
     this.kontaktyCollection.doc(id).set(kontakt);
   }
 
   dodajAdres(id: string, adres: Adres) {
     this.afs.collection('kontakty/' + id + '/adres').add(adres);
 
+  }
+
+  skasujKontakt(id: string) {
+    this.kontaktDoc = this.afs.doc('kontakty/' + id);
+    this.kontaktDoc.delete();
   }
 }

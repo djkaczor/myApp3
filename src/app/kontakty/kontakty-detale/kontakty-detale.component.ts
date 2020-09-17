@@ -39,6 +39,7 @@ export class KontaktyDetaleComponent implements OnInit {
   }
 
   delete() {
-
+    this.k.skasujKontakt(this.kontakt.id);
+    this.zamknij();
   }
 }
