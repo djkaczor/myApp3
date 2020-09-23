@@ -45,6 +45,7 @@ export class KontaltyListaComponent implements OnInit {
   colorA = '#3b5b96';
   destroyed: any;
   uid: string;
+  l: number;
 
 
   constructor(private ks: KontaktyService) {
@@ -58,6 +59,8 @@ export class KontaltyListaComponent implements OnInit {
     this.zmiany = false;
     // this.kontakty = this.k.pobierzKontakty();
     this.getKontakt();
+    
+    
 
   }
 
@@ -72,7 +75,7 @@ export class KontaltyListaComponent implements OnInit {
     this.uid = this.kontakty[i].id.toString();
     this.ks.pobierzAdres(this.uid).subscribe(adres => {
       this.adres = adres;
-     
+
     });
     this.zmiany = true;
   }
@@ -81,7 +84,7 @@ export class KontaltyListaComponent implements OnInit {
     this.uid = this.kontakty[id].id.toString();
     this.ks.pobierzAdres(this.uid).subscribe(adres => {
       this.adres = adres;
-      
+
     });
   }
 
@@ -95,7 +98,9 @@ export class KontaltyListaComponent implements OnInit {
 
     this.ks.pobierzKontakty().subscribe(kontakty => {
       this.kontakty = kontakty;
-      
+      this.l = this.kontakty.length;
+      console.log(this.l);
+
     });
 
 

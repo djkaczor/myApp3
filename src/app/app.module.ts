@@ -25,6 +25,8 @@ import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edy
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
+import { RegisterComponent } from './register/register.component';
+
 
 //import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -44,6 +46,8 @@ import { environment } from '../environments/environment';
     MagazynNowyProduktComponent,
     FilterPipe,
     KontaktyEdycjaComponent,
+    RegisterComponent,
+    
 
 
   ],

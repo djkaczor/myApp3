@@ -64,7 +64,7 @@
     <div id="col1" class="collapse">
       <div class="form-row">
         <div class="form-group col-md-10 pr-3">
-          <label for="ul2"><span>*</span> Ulica:</label>
+          <label for="ul2"> Ulica:</label>
           <input id="ul2" [(ngModel)]="adres2.ul" class="form-control" type="text" name="ul2" />
         </div>
         <div class="form-group col-md-2 pl-3">
@@ -75,11 +75,11 @@
 
       <div class="form-row">
         <div class="form-group col-md-3 pr-3">
-          <label for="kodPocztowy2"><span>*</span> Kod pocztowy:</label>
+          <label for="kodPocztowy2"> Kod pocztowy:</label>
           <input type="number" id="kodPocztowy" [(ngModel)]="adres2.kodPocztowy" class="form-control" name="kodPocztowy2" />
         </div>
         <div class="form-group col-md-9 pl-3 ">
-          <label for="miasto2"><span>*</span> Miasto:</label>
+          <label for="miasto2"> Miasto:</label>
           <input id="miasto2" [(ngModel)]="adres2.miasto" class="form-control" type="text" name="miasto2" />
         </div>
       </div>
@@ -105,7 +105,7 @@
     </div>
 
 <div class="d-flex justify-content-center"> 
-  <button type="submit" class="btn btn-success mt-3 mb-5">Zapisz
+  <button type="submit" class="btn btn-success mt-3 mb-5" [disabled] = "!kontakt.imie || !kontakt.nazwisko || !adres1.ul || !adres1.kodPocztowy || !adres1.miasto">Zapisz
       kontakt</button>
 </div>
     

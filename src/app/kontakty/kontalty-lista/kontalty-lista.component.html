@@ -1,8 +1,9 @@
 
 
 <div class="container">
-  <div class="row">
-    <div [@inAnimation] [ngClass]="zmiany ? 'col-md-5' : 'col-md-12'" class="">
+  
+  <div *ngIf = "l > 0" class="row">
+    <div [@inAnimation] [ngClass]="zmiany ? 'col-md-4' : 'col-md-12'" class="">
       <div [ngClass] = "!zmiany ? 'border-bottom' : 'border_bottom'" class="row  tHead">
         <div [ngClass] = "!zmiany ? 'col-md-1' : 'col-md-2'" class="border_dashed">Id:</div>
         <div [ngClass] = "!zmiany ? 'col-md-3' : 'col'" class="border_dashed">Imie i nazwisko:</div>
@@ -12,19 +13,20 @@
       </div>
 
       <div class="row pb-2 pt-3 focus" *ngFor = "let k of kontakty; let i = index" (click) = detale(i)>
-        <div [ngClass] = "!zmiany ? 'col-md-1' : 'col-md-2'"  class="border_dashed"></div>
+        <div [ngClass] = "!zmiany ? 'col-md-1' : 'col-md-2'"  class="border_dashed"> {{ k.nrKlienta }} </div>
         <div [ngClass] = "!zmiany ? 'col-md-3' : 'col'" class="border_dashed">{{k.imie}} {{k.nazwisko}}</div>
         <div *ngIf = "!zmiany" class="col-md-2 border_dashed">{{k.tel}}</div>
-        <div *ngIf = "!zmiany" class="col-md-2 border_dashed"></div>
-        <div *ngIf = "!zmiany" class="col border_dashed"></div>
+        <div *ngIf = "!zmiany" class="col-md-2 border_dashed"> {{k.faktury}} </div>
+        <div *ngIf = "!zmiany" class="col border_dashed"> {{k.status}} </div>
       </div>
     </div>
-    <div [@inAnimation] *ngIf="zmiany" id = "detale" [ngClass]="zmiany? 'col-md-7' : 'col2'">
+    <div [@inAnimation] *ngIf="zmiany" id = "detale" [ngClass]="zmiany? 'col-md-8' : 'col2'">
       <app-kontakty-detale [zmiany] = "zmiany" [adres] = 'adres' [kontakt] = "kontakt"  (zamknijDetale) = "aktualizacja($event)" ></app-kontakty-detale>
       
     </div>
    
   </div>
+  <h5 *ngIf = 'l == 0'>Brak kontaktów...</h5>
 </div>
 
 

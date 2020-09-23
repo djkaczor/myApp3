@@ -39,13 +39,29 @@ header {
   }
 }
 
-.seting h5 {
+ h5 {
   font-weight: normal;
-  padding-left: 15px;
+  //padding-left: 15px;
   color: green;
 }
 
-.seting div {
+.seting {
   // text-align: center;
   padding-left: 15px;
 }
+
+.editIco {
+  font-size: 15px;
+  color: yellow;
+  
+}
+
+.editIco2 {
+  font-size: 17px;
+  color: yellow;
+}
+
+.fa-pencil-alt {
+  cursor: pointer;
+}
+

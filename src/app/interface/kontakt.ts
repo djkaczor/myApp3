@@ -8,6 +8,6 @@ export interface Kontakt {
   nazwisko?: string;
   tel?: number;
   email?: string;
-  // faktury?: number;
-  // status?: boolean;
+  faktury?: number;
+  status?: boolean;
 }

@@ -22,7 +22,10 @@ export class KontaktyNowyKontaktComponent implements OnInit {
   //adres: Adres[] = [];
 
   nrK: number;
+  temp: number;
   newID: string;
+
+  kontakty: Kontakt[] = [];
 
   // Kontakt
   kontakt: Kontakt = {
@@ -31,10 +34,13 @@ export class KontaktyNowyKontaktComponent implements OnInit {
     nazwisko: '',
     tel: null,
     email: '',
+    faktury: 0,
+    status: false
   };
 
   // Adres 1
   adres1: Adres = {
+    aid: 1,
     typAdres: 'Adres zamieszkania',
     ul: '',
     nrLokalu: '',
@@ -44,6 +50,7 @@ export class KontaktyNowyKontaktComponent implements OnInit {
 
   // Adres 2
   adres2: Adres = {
+    aid: 2,
     typAdres: 'Adres do korespondencji',
     ul: '',
     nrLokalu: '',
@@ -58,22 +65,34 @@ export class KontaktyNowyKontaktComponent implements OnInit {
 
   ngOnInit() {
     // this._id = this.k.ostatniKontakt();
-    this.k.afs.collection('kontakty').valueChanges().subscribe( v => this.nrK = v.length);
+    this.k.afs.collection('kontakty').valueChanges().subscribe(v => {
+      this.kontakty = v;
+      this.nrK = v.length;
+    });
 
   }
 
   add() {
+
+    this.temp = 0;
+    for (let i = 0; i < this.nrK; i++) {
+      if (this.temp < this.kontakty[i].nrKlienta) {
+        this.temp = this.kontakty[i].nrKlienta;
+        console.log(this.temp);
+      }
+    }
+
     this.newID = this.k.afs.createId();
-    this.kontakt.nrKlienta = this.nrK + 1;
+    this.kontakt.nrKlienta = this.temp + 1;
 
     this.k.dodajKontakt(this.newID, this.kontakt);
     delay(2000);
     this.addAdres(this.newID);
 
     this.router.navigate(['/kontakty']);
-      // .then(() => {
-      //   window.location.reload();
-      // });
+    // .then(() => {
+    //   window.location.reload();
+    // });
   }
 
   addAdres(id: string) {
@@ -87,6 +106,7 @@ export class KontaktyNowyKontaktComponent implements OnInit {
 
     else {
       this.adres1.typAdres = 'Adres do korespondencji';
+      this.adres1.aid = 2;
       this.k.dodajAdres(id, this.adres1);
     }
 

@@ -1,48 +1,139 @@
 <div class="myContainer">
   <div class="row border_bottom">
-    <div class="col ">
-      <header><span class="pr-2">[ {{kontakt.nrKlienta}} ]</span> {{kontakt.imie}} {{kontakt.nazwisko}} </header>
+    <div
+      [ngClass]="!editStateKontaktImie ? 'col d-flex align-items-center' : 'col align-items-center justify-content-center'">
+      <header *ngIf='!editStateKontaktImie'><span class="pr-2">[ {{kontakt.nrKlienta}} ]</span> {{kontakt.imie}}
+        {{kontakt.nazwisko}} </header>
+      <i *ngIf='!editStateKontaktImie' (click)='edycjaKontaktImie()' class="pl-2 editIco2 fas fa-pencil-alt"></i>
+    
+      <div *ngIf='editStateKontaktImie' class="pb-3 mb-4 pl-3">
+        <h5 class=""><i class="fas fa-user-cog mr-2"></i>Edytuj </h5>
+        <form (ngSubmit)='edytujKontakt()' >
+          <div class="form-row">
+            <div class="form-group col-md-6 pr-3">
+              <input id="imie" [(ngModel)]="kontaktDoEdycji.imie" class="form-control" type="text" name="imie" />
+            </div>
+            <div class="form-group col-md-6 pl-3">
+              <input id="nazwisko" [(ngModel)]="kontaktDoEdycji.nazwisko" class="form-control" type="text"
+                name="nazwisko" />
+            </div>
+          </div>
+          <button type="submit" value="update kontakt" class="btn btn-success mt-3  mr-3">Zapisz
+            zmiany</button>
+          <button (click)='anulujImie()' value="anuluj" class="btn btn-warning mt-3 ">Anuluj</button>
+        </form>
+      </div>
+
+
     </div>
-    <div class="col d-flex justify-content-end align-items-center">
-      <i class="fas fa-user-cog pr-3 set" (click) = 'edycja()' ></i>
-      <i class="far fa-trash-alt pr-3 set" (click) = "delete()"></i>
-      <i class="far fa-times-circle set" alt = "zamknij" (click) = "zamknij()"></i>
+    <div *ngIf='!editStateKontaktImie' class="col d-flex justify-content-end align-items-center">
+
+      <i class="far fa-trash-alt pr-3 set" (click)="delete()"></i>
+      <i class="far fa-times-circle set" alt="zamknij" (click)="zamknij()"></i>
+
+
     </div>
   </div>
 
-  <div  class="row mt-5 border_bottom pb-3 mb-4">
-    <div class="col border_dashed seting" *ngFor="let a of adres">
-      <h5><i class="fas fa-map-marker-alt mr-2"></i>{{a.typAdres}} </h5>
-      <div>Ul. {{a.ul}} {{a.nrLokalu}}</div>
+  <!-- Adres -->
+
+  <div *ngIf="!editStateAdres" class="row  border_bottom mt-5 pb-3 mb-4">
+    <div class="col border_dashed " *ngFor="let a of adres">
+      <h5><i class="fas fa-map-marker-alt mr-2"></i>{{a.typAdres}}<i (click)='edycjaAdres(a)'
+          class="pl-2 editIco fas fa-pencil-alt"></i></h5>
+      <div>Ul. {{a.ul}} {{a.nrLokalu}} </div>
       <div> {{a.kodPocztowy}} {{a.miasto}}</div>
     </div>
   </div>
 
-   <div class="row">
-    <div *ngIf = "kontakt.tel" class="col border_dashed seting">
-      <h5><i class="fas fa-phone mr-2"></i>Telefon:</h5>
-      <div> {{kontakt.tel}} </div>
-    </div>
+  <div *ngIf="editStateAdres" class="border_bottom mt-5 pb-3 mb-4">
+    <form (ngSubmit)="edytujAdres()" class="mr-3 ml-3">
+      <h5 class=""><i class="fas fa-user-cog mr-2"></i>Edytuj {{adresDoEdycji.typAdres}}</h5>
+      <div class="form-row">
+        <div class="form-group col pr-3">
+          <input id="ul" [(ngModel)]="adresDoEdycji.ul" class="form-control" type="text" name="ul2" />
+        </div>
+        <div class="form-group col-md-2 pl-3">
+          <input id="nrLokalu" [(ngModel)]="adresDoEdycji.nrLokalu" class="form-control" type="text" name="nrLokalu" />
+        </div>
+      </div>
 
-    <div *ngIf = "kontakt.email" class="col border_dashed seting">
-      <h5><i class="fas fa-at mr-2"></i>E-mail:</h5>
-      <div> {{kontakt.email}} </div>
-    </div>
+      <div class="form-row">
+        <div class="form-group col-md-3 pr-3">
+          <input type="number" id="kodPocztowy" [(ngModel)]="adresDoEdycji.kodPocztowy" class="form-control"
+            name="kodPocztowy" />
+        </div>
+        <div class="form-group col pl-3 ">
 
-  </div> 
-
- 
-    
+          <input id="miasto" [(ngModel)]="adresDoEdycji.miasto" class="form-control" type="text" name="miasto" />
+        </div>
+      </div>
+      <button type="submit" value="update adres" class="btn btn-success mt-3  mr-3">Zapisz
+        zmiany</button>
+      <button (click)='anuluj()' value="anuluj" class="btn btn-warning mt-3 ">Anuluj</button>
+    </form>
   </div>
 
-  
- <!-- <div *ngIf = 'edycja' class="row mt-5 border_bottom pb-3 mb-4">
+  <!-- telefon i email -->
+
+  <div class="row">
+    <div class="col border_dashed seting">
+      <div *ngIf='!editStateKontaktTel'>
+        <div *ngIf="kontakt.tel">
+          <h5><i class="fas fa-phone mr-2"></i>Telefon:<i (click)='edytujTel()'
+              class="pl-2 editIco2 fas fa-pencil-alt"></i></h5>
+          <div> {{kontakt.tel}} </div>
+        </div>
+        <button (click) = 'edytujTel()' class="btn btn-success" *ngIf="!kontakt.tel && !editStateKontaktTel">Dodaj telefon</button>
+      </div>
+
+
+      <form (ngSubmit)='edytujKontaktTel()'>
+        <div *ngIf='editStateKontaktTel' class="form-group col pl-3">
+          <input id="tel" [(ngModel)]="kontakt.tel" class="form-control" type="text" name="tel" />
+          <button class="btn btn-success mt-3 mr-3">Zapisz zmiany</button>
+          <button (click)='anulujTel()' value="anuluj" class="btn btn-warning mt-3 ">Anuluj</button>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="col border_dashed seting">
+      <div *ngIf='!editStateKontaktEmail'>
+        <div *ngIf="kontakt.email">
+          <h5><i class="fas fa-at mr-2"></i>E-mail:<i (click)='edytujEmail()'
+              class="pl-2 editIco2 fas fa-pencil-alt"></i></h5>
+          <div> {{kontakt.email}} </div>
+        </div>
+        <button (click)='edytujEmail()' class="btn btn-success" *ngIf="!kontakt.email && !editStateKontaktEmail">Dodaj E-mail</button>
+      </div>
+
+
+      <form (ngSubmit)='edytujKontaktEmail()'>
+        <div *ngIf='editStateKontaktEmail' class="form-group col pl-3">
+          <input id="email" [(ngModel)]="kontakt.email" class="form-control" type="email" name="email" />
+          <button class="btn btn-success mt-3 mr-3">Zapisz zmiany</button>
+          <button (click)='anulujEmail()' value="anuluj" class="btn btn-warning mt-3 ">Anuluj</button>
+
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+<!-- <div *ngIf = 'edycja' class="row mt-5 border_bottom pb-3 mb-4">
     <div class="col  seting">
       <app-kontakty-edycja [kontakt] = "kontakt"></app-kontakty-edycja>
     </div>
   </div> -->
 
-  <!-- <div class="row">
+<!-- <div class="row">
   <div class="col">
 
     <ul *ngFor = "let a of kontakt.adres; ">

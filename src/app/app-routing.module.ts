@@ -10,7 +10,10 @@ import { MagazynNowyProduktComponent } from './magazyn/magazyn-nowy-produkt/maga
 import { KontaktyEdycjaComponent } from './kontakty/kontakty-edycja/kontakty-edycja.component';
 
 
+
 const routes: Routes = [
+
+
   { path: 'kontakty', component: KontaktyStronaComponent, children: [
     { path: '', component: KontaltyListaComponent },
     { path: 'Dodaj-kontakt', component: KontaktyNowyKontaktComponent },

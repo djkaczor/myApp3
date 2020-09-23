@@ -15,7 +15,7 @@ export class KontaktyService {
 
   kontaktyCollection: AngularFirestoreCollection<Kontakt>;
   adresyCollection: AngularFirestoreCollection<Adres>;
-  kontaktDoc: AngularFirestoreDocument<Kontakt>;
+
 
   kontakty: Observable<Kontakt[]>;
   adres: Observable<Adres[]>;
@@ -53,7 +53,7 @@ export class KontaktyService {
   pobierzAdres(id: string) {
     // this.adres = this.afs.collection('kontakty').doc(id).collection('adres').valueChanges();
 
-    this.adres = this.kontaktyCollection.doc(id).collection('adres').snapshotChanges().pipe(
+    this.adres = this.kontaktyCollection.doc(id).collection('adres', ref => ref.orderBy('aid', 'asc')).snapshotChanges().pipe(
       map(zmiany => {
         return zmiany.map(a => {
           const data = a.payload.doc.data() as Adres;
@@ -76,8 +76,20 @@ export class KontaktyService {
 
   }
 
+  skasujAdresy(id: string, adresID: string) {
+    this.afs.collection('kontakty/').doc(id).collection('adres').doc(adresID).delete();
+  }
+
   skasujKontakt(id: string) {
-    this.kontaktDoc = this.afs.doc('kontakty/' + id);
-    this.kontaktDoc.delete();
+    this.afs.collection('kontakty').doc(id).delete();
+  }
+
+  edytujAdres(kid: string, aid: string, adres: Adres) {
+    this.afs.collection('kontakty/').doc(kid).collection('adres').doc(aid).update(adres);
+  }
+
+  edytujKontaktImie(id: string, kontakt: Kontakt) {
+    this.afs.collection('kontakty/').doc(id).update(kontakt);
+
   }
 }
